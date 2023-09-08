@@ -13,9 +13,9 @@ defmodule Ory.Model.ContinueWithSetOrySessionToken do
   ]
 
   @type t :: %__MODULE__{
-    :action => String.t,
-    :ory_session_token => String.t
-  }
+          :action => String.t(),
+          :ory_session_token => String.t()
+        }
 end
 
 defimpl Poison.Decoder, for: Ory.Model.ContinueWithSetOrySessionToken do
@@ -23,4 +23,3 @@ defimpl Poison.Decoder, for: Ory.Model.ContinueWithSetOrySessionToken do
     value
   end
 end
-

@@ -28,24 +28,24 @@ defmodule Ory.Model.UpdateSettingsFlowBody do
   ]
 
   @type t :: %__MODULE__{
-    :csrf_token => String.t | nil,
-    :method => String.t,
-    :password => String.t,
-    :traits => map(),
-    :flow => String.t | nil,
-    :link => String.t | nil,
-    :unlink => String.t | nil,
-    :upstream_parameters => map() | nil,
-    :totp_code => String.t | nil,
-    :totp_unlink => boolean() | nil,
-    :webauthn_register => String.t | nil,
-    :webauthn_register_displayname => String.t | nil,
-    :webauthn_remove => String.t | nil,
-    :lookup_secret_confirm => boolean() | nil,
-    :lookup_secret_disable => boolean() | nil,
-    :lookup_secret_regenerate => boolean() | nil,
-    :lookup_secret_reveal => boolean() | nil
-  }
+          :csrf_token => String.t() | nil,
+          :method => String.t(),
+          :password => String.t(),
+          :traits => map(),
+          :flow => String.t() | nil,
+          :link => String.t() | nil,
+          :unlink => String.t() | nil,
+          :upstream_parameters => map() | nil,
+          :totp_code => String.t() | nil,
+          :totp_unlink => boolean() | nil,
+          :webauthn_register => String.t() | nil,
+          :webauthn_register_displayname => String.t() | nil,
+          :webauthn_remove => String.t() | nil,
+          :lookup_secret_confirm => boolean() | nil,
+          :lookup_secret_disable => boolean() | nil,
+          :lookup_secret_regenerate => boolean() | nil,
+          :lookup_secret_reveal => boolean() | nil
+        }
 end
 
 defimpl Poison.Decoder, for: Ory.Model.UpdateSettingsFlowBody do
@@ -53,4 +53,3 @@ defimpl Poison.Decoder, for: Ory.Model.UpdateSettingsFlowBody do
     value
   end
 end
-

@@ -7,13 +7,9 @@ defmodule Ory.Model.AuthenticatorAssuranceLevel do
   """
 
   @derive [Poison.Encoder]
-  defstruct [
-    
-  ]
+  defstruct []
 
-  @type t :: %__MODULE__{
-    
-  }
+  @type t :: %__MODULE__{}
 end
 
 defimpl Poison.Decoder, for: Ory.Model.AuthenticatorAssuranceLevel do
@@ -21,4 +17,3 @@ defimpl Poison.Decoder, for: Ory.Model.AuthenticatorAssuranceLevel do
     value
   end
 end
-

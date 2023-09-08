@@ -12,15 +12,15 @@ defmodule Ory.Model.ErrorGeneric do
   ]
 
   @type t :: %__MODULE__{
-    :error => Ory.Model.GenericError.t
-  }
+          :error => Ory.Model.GenericError.t()
+        }
 end
 
 defimpl Poison.Decoder, for: Ory.Model.ErrorGeneric do
   import Ory.Deserializer
+
   def decode(value, options) do
     value
     |> deserialize(:error, :struct, Ory.Model.GenericError, options)
   end
 end
-

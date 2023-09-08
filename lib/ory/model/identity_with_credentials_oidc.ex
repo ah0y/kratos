@@ -12,15 +12,15 @@ defmodule Ory.Model.IdentityWithCredentialsOidc do
   ]
 
   @type t :: %__MODULE__{
-    :config => Ory.Model.IdentityWithCredentialsOidcConfig.t | nil
-  }
+          :config => Ory.Model.IdentityWithCredentialsOidcConfig.t() | nil
+        }
 end
 
 defimpl Poison.Decoder, for: Ory.Model.IdentityWithCredentialsOidc do
   import Ory.Deserializer
+
   def decode(value, options) do
     value
     |> deserialize(:config, :struct, Ory.Model.IdentityWithCredentialsOidcConfig, options)
   end
 end
-

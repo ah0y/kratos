@@ -15,11 +15,11 @@ defmodule Ory.Model.SessionDevice do
   ]
 
   @type t :: %__MODULE__{
-    :id => String.t,
-    :ip_address => String.t | nil,
-    :location => String.t | nil,
-    :user_agent => String.t | nil
-  }
+          :id => String.t(),
+          :ip_address => String.t() | nil,
+          :location => String.t() | nil,
+          :user_agent => String.t() | nil
+        }
 end
 
 defimpl Poison.Decoder, for: Ory.Model.SessionDevice do
@@ -27,4 +27,3 @@ defimpl Poison.Decoder, for: Ory.Model.SessionDevice do
     value
   end
 end
-

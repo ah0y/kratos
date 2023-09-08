@@ -3,7 +3,7 @@
 
 defmodule Ory.Model.IdentityCredentialsOidcProvider do
   @moduledoc """
-  
+
   """
 
   @derive [Poison.Encoder]
@@ -16,12 +16,12 @@ defmodule Ory.Model.IdentityCredentialsOidcProvider do
   ]
 
   @type t :: %__MODULE__{
-    :initial_access_token => String.t | nil,
-    :initial_id_token => String.t | nil,
-    :initial_refresh_token => String.t | nil,
-    :provider => String.t | nil,
-    :subject => String.t | nil
-  }
+          :initial_access_token => String.t() | nil,
+          :initial_id_token => String.t() | nil,
+          :initial_refresh_token => String.t() | nil,
+          :provider => String.t() | nil,
+          :subject => String.t() | nil
+        }
 end
 
 defimpl Poison.Decoder, for: Ory.Model.IdentityCredentialsOidcProvider do
@@ -29,4 +29,3 @@ defimpl Poison.Decoder, for: Ory.Model.IdentityCredentialsOidcProvider do
     value
   end
 end
-

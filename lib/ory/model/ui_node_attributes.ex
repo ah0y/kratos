@@ -3,7 +3,7 @@
 
 defmodule Ory.Model.UiNodeAttributes do
   @moduledoc """
-  
+
   """
 
   @derive [Poison.Encoder]
@@ -33,33 +33,34 @@ defmodule Ory.Model.UiNodeAttributes do
   ]
 
   @type t :: %__MODULE__{
-    :autocomplete => String.t | nil,
-    :disabled => boolean(),
-    :label => Ory.Model.UiText.t | nil,
-    :name => String.t,
-    :node_type => String.t,
-    :onclick => String.t | nil,
-    :pattern => String.t | nil,
-    :required => boolean() | nil,
-    :type => String.t,
-    :value => any() | nil,
-    :id => String.t,
-    :text => Ory.Model.UiText.t,
-    :height => integer(),
-    :src => String.t,
-    :width => integer(),
-    :href => String.t,
-    :title => Ory.Model.UiText.t,
-    :async => boolean(),
-    :crossorigin => String.t,
-    :integrity => String.t,
-    :nonce => String.t,
-    :referrerpolicy => String.t
-  }
+          :autocomplete => String.t() | nil,
+          :disabled => boolean(),
+          :label => Ory.Model.UiText.t() | nil,
+          :name => String.t(),
+          :node_type => String.t(),
+          :onclick => String.t() | nil,
+          :pattern => String.t() | nil,
+          :required => boolean() | nil,
+          :type => String.t(),
+          :value => any() | nil,
+          :id => String.t(),
+          :text => Ory.Model.UiText.t(),
+          :height => integer(),
+          :src => String.t(),
+          :width => integer(),
+          :href => String.t(),
+          :title => Ory.Model.UiText.t(),
+          :async => boolean(),
+          :crossorigin => String.t(),
+          :integrity => String.t(),
+          :nonce => String.t(),
+          :referrerpolicy => String.t()
+        }
 end
 
 defimpl Poison.Decoder, for: Ory.Model.UiNodeAttributes do
   import Ory.Deserializer
+
   def decode(value, options) do
     value
     |> deserialize(:label, :struct, Ory.Model.UiText, options)
@@ -67,4 +68,3 @@ defimpl Poison.Decoder, for: Ory.Model.UiNodeAttributes do
     |> deserialize(:title, :struct, Ory.Model.UiText, options)
   end
 end
-

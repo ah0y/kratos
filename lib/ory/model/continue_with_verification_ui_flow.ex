@@ -3,7 +3,7 @@
 
 defmodule Ory.Model.ContinueWithVerificationUiFlow do
   @moduledoc """
-  
+
   """
 
   @derive [Poison.Encoder]
@@ -14,10 +14,10 @@ defmodule Ory.Model.ContinueWithVerificationUiFlow do
   ]
 
   @type t :: %__MODULE__{
-    :id => String.t,
-    :url => String.t | nil,
-    :verifiable_address => String.t
-  }
+          :id => String.t(),
+          :url => String.t() | nil,
+          :verifiable_address => String.t()
+        }
 end
 
 defimpl Poison.Decoder, for: Ory.Model.ContinueWithVerificationUiFlow do
@@ -25,4 +25,3 @@ defimpl Poison.Decoder, for: Ory.Model.ContinueWithVerificationUiFlow do
     value
   end
 end
-

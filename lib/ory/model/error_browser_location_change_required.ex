@@ -3,7 +3,7 @@
 
 defmodule Ory.Model.ErrorBrowserLocationChangeRequired do
   @moduledoc """
-  
+
   """
 
   @derive [Poison.Encoder]
@@ -13,16 +13,16 @@ defmodule Ory.Model.ErrorBrowserLocationChangeRequired do
   ]
 
   @type t :: %__MODULE__{
-    :error => Ory.Model.ErrorGeneric.t | nil,
-    :redirect_browser_to => String.t | nil
-  }
+          :error => Ory.Model.ErrorGeneric.t() | nil,
+          :redirect_browser_to => String.t() | nil
+        }
 end
 
 defimpl Poison.Decoder, for: Ory.Model.ErrorBrowserLocationChangeRequired do
   import Ory.Deserializer
+
   def decode(value, options) do
     value
     |> deserialize(:error, :struct, Ory.Model.ErrorGeneric, options)
   end
 end
-

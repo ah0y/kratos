@@ -13,9 +13,9 @@ defmodule Ory.Model.IdentitySchemaContainer do
   ]
 
   @type t :: %__MODULE__{
-    :id => String.t | nil,
-    :schema => map() | nil
-  }
+          :id => String.t() | nil,
+          :schema => map() | nil
+        }
 end
 
 defimpl Poison.Decoder, for: Ory.Model.IdentitySchemaContainer do
@@ -23,4 +23,3 @@ defimpl Poison.Decoder, for: Ory.Model.IdentitySchemaContainer do
     value
   end
 end
-

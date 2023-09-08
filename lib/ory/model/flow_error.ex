@@ -3,7 +3,7 @@
 
 defmodule Ory.Model.FlowError do
   @moduledoc """
-  
+
   """
 
   @derive [Poison.Encoder]
@@ -15,11 +15,11 @@ defmodule Ory.Model.FlowError do
   ]
 
   @type t :: %__MODULE__{
-    :created_at => DateTime.t | nil,
-    :error => map() | nil,
-    :id => String.t,
-    :updated_at => DateTime.t | nil
-  }
+          :created_at => DateTime.t() | nil,
+          :error => map() | nil,
+          :id => String.t(),
+          :updated_at => DateTime.t() | nil
+        }
 end
 
 defimpl Poison.Decoder, for: Ory.Model.FlowError do
@@ -27,4 +27,3 @@ defimpl Poison.Decoder, for: Ory.Model.FlowError do
     value
   end
 end
-

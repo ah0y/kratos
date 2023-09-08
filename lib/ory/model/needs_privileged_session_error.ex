@@ -3,7 +3,7 @@
 
 defmodule Ory.Model.NeedsPrivilegedSessionError do
   @moduledoc """
-  
+
   """
 
   @derive [Poison.Encoder]
@@ -13,16 +13,16 @@ defmodule Ory.Model.NeedsPrivilegedSessionError do
   ]
 
   @type t :: %__MODULE__{
-    :error => Ory.Model.GenericError.t | nil,
-    :redirect_browser_to => String.t
-  }
+          :error => Ory.Model.GenericError.t() | nil,
+          :redirect_browser_to => String.t()
+        }
 end
 
 defimpl Poison.Decoder, for: Ory.Model.NeedsPrivilegedSessionError do
   import Ory.Deserializer
+
   def decode(value, options) do
     value
     |> deserialize(:error, :struct, Ory.Model.GenericError, options)
   end
 end
-

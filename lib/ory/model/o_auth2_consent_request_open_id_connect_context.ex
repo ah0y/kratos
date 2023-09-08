@@ -16,12 +16,12 @@ defmodule Ory.Model.OAuth2ConsentRequestOpenIdConnectContext do
   ]
 
   @type t :: %__MODULE__{
-    :acr_values => [String.t] | nil,
-    :display => String.t | nil,
-    :id_token_hint_claims => %{optional(String.t) => any()} | nil,
-    :login_hint => String.t | nil,
-    :ui_locales => [String.t] | nil
-  }
+          :acr_values => [String.t()] | nil,
+          :display => String.t() | nil,
+          :id_token_hint_claims => %{optional(String.t()) => any()} | nil,
+          :login_hint => String.t() | nil,
+          :ui_locales => [String.t()] | nil
+        }
 end
 
 defimpl Poison.Decoder, for: Ory.Model.OAuth2ConsentRequestOpenIdConnectContext do
@@ -29,4 +29,3 @@ defimpl Poison.Decoder, for: Ory.Model.OAuth2ConsentRequestOpenIdConnectContext 
     value
   end
 end
-

@@ -17,13 +17,13 @@ defmodule Ory.Model.UpdateRegistrationFlowWithOidcMethod do
   ]
 
   @type t :: %__MODULE__{
-    :csrf_token => String.t | nil,
-    :method => String.t,
-    :provider => String.t,
-    :traits => map() | nil,
-    :transient_payload => map() | nil,
-    :upstream_parameters => map() | nil
-  }
+          :csrf_token => String.t() | nil,
+          :method => String.t(),
+          :provider => String.t(),
+          :traits => map() | nil,
+          :transient_payload => map() | nil,
+          :upstream_parameters => map() | nil
+        }
 end
 
 defimpl Poison.Decoder, for: Ory.Model.UpdateRegistrationFlowWithOidcMethod do
@@ -31,4 +31,3 @@ defimpl Poison.Decoder, for: Ory.Model.UpdateRegistrationFlowWithOidcMethod do
     value
   end
 end
-

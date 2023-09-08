@@ -3,7 +3,7 @@
 
 defmodule Ory.Model.UiNodeImageAttributes do
   @moduledoc """
-  
+
   """
 
   @derive [Poison.Encoder]
@@ -16,12 +16,12 @@ defmodule Ory.Model.UiNodeImageAttributes do
   ]
 
   @type t :: %__MODULE__{
-    :height => integer(),
-    :id => String.t,
-    :node_type => String.t,
-    :src => String.t,
-    :width => integer()
-  }
+          :height => integer(),
+          :id => String.t(),
+          :node_type => String.t(),
+          :src => String.t(),
+          :width => integer()
+        }
 end
 
 defimpl Poison.Decoder, for: Ory.Model.UiNodeImageAttributes do
@@ -29,4 +29,3 @@ defimpl Poison.Decoder, for: Ory.Model.UiNodeImageAttributes do
     value
   end
 end
-

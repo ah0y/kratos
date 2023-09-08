@@ -26,26 +26,27 @@ defmodule Ory.Model.LoginFlow do
   ]
 
   @type t :: %__MODULE__{
-    :active => Ory.Model.IdentityCredentialsType.t | nil,
-    :created_at => DateTime.t | nil,
-    :expires_at => DateTime.t,
-    :id => String.t,
-    :issued_at => DateTime.t,
-    :oauth2_login_challenge => String.t | nil,
-    :oauth2_login_request => Ory.Model.OAuth2LoginRequest.t | nil,
-    :refresh => boolean() | nil,
-    :request_url => String.t,
-    :requested_aal => Ory.Model.AuthenticatorAssuranceLevel.t | nil,
-    :return_to => String.t | nil,
-    :session_token_exchange_code => String.t | nil,
-    :type => String.t,
-    :ui => Ory.Model.UiContainer.t,
-    :updated_at => DateTime.t | nil
-  }
+          :active => Ory.Model.IdentityCredentialsType.t() | nil,
+          :created_at => DateTime.t() | nil,
+          :expires_at => DateTime.t(),
+          :id => String.t(),
+          :issued_at => DateTime.t(),
+          :oauth2_login_challenge => String.t() | nil,
+          :oauth2_login_request => Ory.Model.OAuth2LoginRequest.t() | nil,
+          :refresh => boolean() | nil,
+          :request_url => String.t(),
+          :requested_aal => Ory.Model.AuthenticatorAssuranceLevel.t() | nil,
+          :return_to => String.t() | nil,
+          :session_token_exchange_code => String.t() | nil,
+          :type => String.t(),
+          :ui => Ory.Model.UiContainer.t(),
+          :updated_at => DateTime.t() | nil
+        }
 end
 
 defimpl Poison.Decoder, for: Ory.Model.LoginFlow do
   import Ory.Deserializer
+
   def decode(value, options) do
     value
     |> deserialize(:active, :struct, Ory.Model.IdentityCredentialsType, options)
@@ -54,4 +55,3 @@ defimpl Poison.Decoder, for: Ory.Model.LoginFlow do
     |> deserialize(:ui, :struct, Ory.Model.UiContainer, options)
   end
 end
-

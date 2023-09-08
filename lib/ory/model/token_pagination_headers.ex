@@ -3,7 +3,7 @@
 
 defmodule Ory.Model.TokenPaginationHeaders do
   @moduledoc """
-  
+
   """
 
   @derive [Poison.Encoder]
@@ -13,9 +13,9 @@ defmodule Ory.Model.TokenPaginationHeaders do
   ]
 
   @type t :: %__MODULE__{
-    :link => String.t | nil,
-    :"x-total-count" => String.t | nil
-  }
+          :link => String.t() | nil,
+          :"x-total-count" => String.t() | nil
+        }
 end
 
 defimpl Poison.Decoder, for: Ory.Model.TokenPaginationHeaders do
@@ -23,4 +23,3 @@ defimpl Poison.Decoder, for: Ory.Model.TokenPaginationHeaders do
     value
   end
 end
-

@@ -13,9 +13,9 @@ defmodule Ory.Model.IdentityWithCredentialsPasswordConfig do
   ]
 
   @type t :: %__MODULE__{
-    :hashed_password => String.t | nil,
-    :password => String.t | nil
-  }
+          :hashed_password => String.t() | nil,
+          :password => String.t() | nil
+        }
 end
 
 defimpl Poison.Decoder, for: Ory.Model.IdentityWithCredentialsPasswordConfig do
@@ -23,4 +23,3 @@ defimpl Poison.Decoder, for: Ory.Model.IdentityWithCredentialsPasswordConfig do
     value
   end
 end
-

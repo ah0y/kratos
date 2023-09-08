@@ -3,7 +3,7 @@
 
 defmodule Ory.Model.UiNodeScriptAttributes do
   @moduledoc """
-  
+
   """
 
   @derive [Poison.Encoder]
@@ -20,16 +20,16 @@ defmodule Ory.Model.UiNodeScriptAttributes do
   ]
 
   @type t :: %__MODULE__{
-    :async => boolean(),
-    :crossorigin => String.t,
-    :id => String.t,
-    :integrity => String.t,
-    :node_type => String.t,
-    :nonce => String.t,
-    :referrerpolicy => String.t,
-    :src => String.t,
-    :type => String.t
-  }
+          :async => boolean(),
+          :crossorigin => String.t(),
+          :id => String.t(),
+          :integrity => String.t(),
+          :node_type => String.t(),
+          :nonce => String.t(),
+          :referrerpolicy => String.t(),
+          :src => String.t(),
+          :type => String.t()
+        }
 end
 
 defimpl Poison.Decoder, for: Ory.Model.UiNodeScriptAttributes do
@@ -37,4 +37,3 @@ defimpl Poison.Decoder, for: Ory.Model.UiNodeScriptAttributes do
     value
   end
 end
-

@@ -16,12 +16,12 @@ defmodule Ory.Model.UpdateSettingsFlowWithWebAuthnMethod do
   ]
 
   @type t :: %__MODULE__{
-    :csrf_token => String.t | nil,
-    :method => String.t,
-    :webauthn_register => String.t | nil,
-    :webauthn_register_displayname => String.t | nil,
-    :webauthn_remove => String.t | nil
-  }
+          :csrf_token => String.t() | nil,
+          :method => String.t(),
+          :webauthn_register => String.t() | nil,
+          :webauthn_register_displayname => String.t() | nil,
+          :webauthn_remove => String.t() | nil
+        }
 end
 
 defimpl Poison.Decoder, for: Ory.Model.UpdateSettingsFlowWithWebAuthnMethod do
@@ -29,4 +29,3 @@ defimpl Poison.Decoder, for: Ory.Model.UpdateSettingsFlowWithWebAuthnMethod do
     value
   end
 end
-

@@ -21,24 +21,24 @@ defmodule Ory.Model.UiNodeInputAttributes do
   ]
 
   @type t :: %__MODULE__{
-    :autocomplete => String.t | nil,
-    :disabled => boolean(),
-    :label => Ory.Model.UiText.t | nil,
-    :name => String.t,
-    :node_type => String.t,
-    :onclick => String.t | nil,
-    :pattern => String.t | nil,
-    :required => boolean() | nil,
-    :type => String.t,
-    :value => any() | nil
-  }
+          :autocomplete => String.t() | nil,
+          :disabled => boolean(),
+          :label => Ory.Model.UiText.t() | nil,
+          :name => String.t(),
+          :node_type => String.t(),
+          :onclick => String.t() | nil,
+          :pattern => String.t() | nil,
+          :required => boolean() | nil,
+          :type => String.t(),
+          :value => any() | nil
+        }
 end
 
 defimpl Poison.Decoder, for: Ory.Model.UiNodeInputAttributes do
   import Ory.Deserializer
+
   def decode(value, options) do
     value
     |> deserialize(:label, :struct, Ory.Model.UiText, options)
   end
 end
-

@@ -13,16 +13,16 @@ defmodule Ory.Model.SuccessfulNativeLogin do
   ]
 
   @type t :: %__MODULE__{
-    :session => Ory.Model.Session.t,
-    :session_token => String.t | nil
-  }
+          :session => Ory.Model.Session.t(),
+          :session_token => String.t() | nil
+        }
 end
 
 defimpl Poison.Decoder, for: Ory.Model.SuccessfulNativeLogin do
   import Ory.Deserializer
+
   def decode(value, options) do
     value
     |> deserialize(:session, :struct, Ory.Model.Session, options)
   end
 end
-

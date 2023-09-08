@@ -20,16 +20,16 @@ defmodule Ory.Model.UpdateRegistrationFlowBody do
   ]
 
   @type t :: %__MODULE__{
-    :csrf_token => String.t | nil,
-    :method => String.t,
-    :password => String.t,
-    :traits => map(),
-    :transient_payload => map() | nil,
-    :provider => String.t,
-    :upstream_parameters => map() | nil,
-    :webauthn_register => String.t | nil,
-    :webauthn_register_displayname => String.t | nil
-  }
+          :csrf_token => String.t() | nil,
+          :method => String.t(),
+          :password => String.t(),
+          :traits => map(),
+          :transient_payload => map() | nil,
+          :provider => String.t(),
+          :upstream_parameters => map() | nil,
+          :webauthn_register => String.t() | nil,
+          :webauthn_register_displayname => String.t() | nil
+        }
 end
 
 defimpl Poison.Decoder, for: Ory.Model.UpdateRegistrationFlowBody do
@@ -37,4 +37,3 @@ defimpl Poison.Decoder, for: Ory.Model.UpdateRegistrationFlowBody do
     value
   end
 end
-

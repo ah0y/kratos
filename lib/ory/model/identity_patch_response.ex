@@ -14,10 +14,10 @@ defmodule Ory.Model.IdentityPatchResponse do
   ]
 
   @type t :: %__MODULE__{
-    :action => String.t | nil,
-    :identity => String.t | nil,
-    :patch_id => String.t | nil
-  }
+          :action => String.t() | nil,
+          :identity => String.t() | nil,
+          :patch_id => String.t() | nil
+        }
 end
 
 defimpl Poison.Decoder, for: Ory.Model.IdentityPatchResponse do
@@ -25,4 +25,3 @@ defimpl Poison.Decoder, for: Ory.Model.IdentityPatchResponse do
     value
   end
 end
-

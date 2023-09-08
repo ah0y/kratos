@@ -19,15 +19,15 @@ defmodule Ory.Model.VerifiableIdentityAddress do
   ]
 
   @type t :: %__MODULE__{
-    :created_at => DateTime.t | nil,
-    :id => String.t | nil,
-    :status => String.t,
-    :updated_at => DateTime.t | nil,
-    :value => String.t,
-    :verified => boolean(),
-    :verified_at => DateTime.t | nil,
-    :via => String.t
-  }
+          :created_at => DateTime.t() | nil,
+          :id => String.t() | nil,
+          :status => String.t(),
+          :updated_at => DateTime.t() | nil,
+          :value => String.t(),
+          :verified => boolean(),
+          :verified_at => DateTime.t() | nil,
+          :via => String.t()
+        }
 end
 
 defimpl Poison.Decoder, for: Ory.Model.VerifiableIdentityAddress do
@@ -35,4 +35,3 @@ defimpl Poison.Decoder, for: Ory.Model.VerifiableIdentityAddress do
     value
   end
 end
-

@@ -3,7 +3,7 @@
 
 defmodule Ory.Model.Version do
   @moduledoc """
-  
+
   """
 
   @derive [Poison.Encoder]
@@ -12,8 +12,8 @@ defmodule Ory.Model.Version do
   ]
 
   @type t :: %__MODULE__{
-    :version => String.t | nil
-  }
+          :version => String.t() | nil
+        }
 end
 
 defimpl Poison.Decoder, for: Ory.Model.Version do
@@ -21,4 +21,3 @@ defimpl Poison.Decoder, for: Ory.Model.Version do
     value
   end
 end
-

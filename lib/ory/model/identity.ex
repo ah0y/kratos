@@ -24,24 +24,25 @@ defmodule Ory.Model.Identity do
   ]
 
   @type t :: %__MODULE__{
-    :created_at => DateTime.t | nil,
-    :credentials => %{optional(String.t) => Ory.Model.IdentityCredentials.t} | nil,
-    :id => String.t,
-    :metadata_admin => any() | nil,
-    :metadata_public => any() | nil,
-    :recovery_addresses => [Ory.Model.RecoveryIdentityAddress.t] | nil,
-    :schema_id => String.t,
-    :schema_url => String.t,
-    :state => Ory.Model.IdentityState.t | nil,
-    :state_changed_at => DateTime.t | nil,
-    :traits => any() | nil,
-    :updated_at => DateTime.t | nil,
-    :verifiable_addresses => [Ory.Model.VerifiableIdentityAddress.t] | nil
-  }
+          :created_at => DateTime.t() | nil,
+          :credentials => %{optional(String.t()) => Ory.Model.IdentityCredentials.t()} | nil,
+          :id => String.t(),
+          :metadata_admin => any() | nil,
+          :metadata_public => any() | nil,
+          :recovery_addresses => [Ory.Model.RecoveryIdentityAddress.t()] | nil,
+          :schema_id => String.t(),
+          :schema_url => String.t(),
+          :state => Ory.Model.IdentityState.t() | nil,
+          :state_changed_at => DateTime.t() | nil,
+          :traits => any() | nil,
+          :updated_at => DateTime.t() | nil,
+          :verifiable_addresses => [Ory.Model.VerifiableIdentityAddress.t()] | nil
+        }
 end
 
 defimpl Poison.Decoder, for: Ory.Model.Identity do
   import Ory.Deserializer
+
   def decode(value, options) do
     value
     |> deserialize(:credentials, :map, Ory.Model.IdentityCredentials, options)
@@ -50,4 +51,3 @@ defimpl Poison.Decoder, for: Ory.Model.Identity do
     |> deserialize(:verifiable_addresses, :list, Ory.Model.VerifiableIdentityAddress, options)
   end
 end
-

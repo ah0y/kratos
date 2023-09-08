@@ -3,7 +3,7 @@
 
 defmodule Ory.Model.RecoveryIdentityAddress do
   @moduledoc """
-  
+
   """
 
   @derive [Poison.Encoder]
@@ -16,12 +16,12 @@ defmodule Ory.Model.RecoveryIdentityAddress do
   ]
 
   @type t :: %__MODULE__{
-    :created_at => DateTime.t | nil,
-    :id => String.t,
-    :updated_at => DateTime.t | nil,
-    :value => String.t,
-    :via => String.t
-  }
+          :created_at => DateTime.t() | nil,
+          :id => String.t(),
+          :updated_at => DateTime.t() | nil,
+          :value => String.t(),
+          :via => String.t()
+        }
 end
 
 defimpl Poison.Decoder, for: Ory.Model.RecoveryIdentityAddress do
@@ -29,4 +29,3 @@ defimpl Poison.Decoder, for: Ory.Model.RecoveryIdentityAddress do
     value
   end
 end
-

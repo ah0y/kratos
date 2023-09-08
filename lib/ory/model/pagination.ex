@@ -3,7 +3,7 @@
 
 defmodule Ory.Model.Pagination do
   @moduledoc """
-  
+
   """
 
   @derive [Poison.Encoder]
@@ -13,9 +13,9 @@ defmodule Ory.Model.Pagination do
   ]
 
   @type t :: %__MODULE__{
-    :page => integer() | nil,
-    :per_page => integer() | nil
-  }
+          :page => integer() | nil,
+          :per_page => integer() | nil
+        }
 end
 
 defimpl Poison.Decoder, for: Ory.Model.Pagination do
@@ -23,4 +23,3 @@ defimpl Poison.Decoder, for: Ory.Model.Pagination do
     value
   end
 end
-

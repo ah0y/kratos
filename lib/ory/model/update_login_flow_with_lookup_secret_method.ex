@@ -14,10 +14,10 @@ defmodule Ory.Model.UpdateLoginFlowWithLookupSecretMethod do
   ]
 
   @type t :: %__MODULE__{
-    :csrf_token => String.t | nil,
-    :lookup_secret => String.t,
-    :method => String.t
-  }
+          :csrf_token => String.t() | nil,
+          :lookup_secret => String.t(),
+          :method => String.t()
+        }
 end
 
 defimpl Poison.Decoder, for: Ory.Model.UpdateLoginFlowWithLookupSecretMethod do
@@ -25,4 +25,3 @@ defimpl Poison.Decoder, for: Ory.Model.UpdateLoginFlowWithLookupSecretMethod do
     value
   end
 end
-
