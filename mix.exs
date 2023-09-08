@@ -36,7 +36,6 @@ defmodule Ory.Mixfile do
     [
       {:tesla, "~> 1.4"},
       {:poison, "~> 3.0"},
-      {:mox, "~> 1.0"},
       {:dialyxir, "~> 1.4", only: :dev, runtime: false},
       {:ex_doc, "~> 0.28", only: :dev, runtime: false}
     ]
