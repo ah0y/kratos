@@ -9,7 +9,8 @@ defmodule Ory.Mixfile do
       build_embedded: Mix.env() == :prod,
       start_permanent: Mix.env() == :prod,
       package: package(),
-      description: "This is the API specification for Ory Identities with features such as registration, login, recovery, account verification, profile settings, password reset, identity management, session management, email and sms delivery, and more. ",
+      description:
+        "This is the API specification for Ory Identities with features such as registration, login, recovery, account verification, profile settings, password reset, identity management, session management, email and sms delivery, and more. ",
       deps: deps()
     ]
   end
@@ -35,21 +36,23 @@ defmodule Ory.Mixfile do
     [
       {:tesla, "~> 1.4"},
       {:poison, "~> 3.0"},
+      {:mox, "~> 1.0"},
+      {:dialyxir, "~> 1.4", only: :dev, runtime: false},
       {:ex_doc, "~> 0.28", only: :dev, runtime: false}
     ]
   end
 
-   defp package do
-      [
-        name: "ory_kratos",
-        files: ~w(.formatter.exs config lib mix.exs README* LICENSE*),
-        licenses: ["Apache-2.0"],
+  defp package do
+    [
+      name: "ory_kratos",
+      files: ~w(.formatter.exs config lib mix.exs README* LICENSE*),
+      licenses: ["Apache-2.0"],
       links: %{
         "GitHub" => "https://github.com/ory/sdk",
         "Website" => "https://www.ory.sh",
         "Documentation" => "https://www.ory.sh/docs",
         "Product" => "https://console.ory.sh"
       }
-      ]
+    ]
   end
 end
