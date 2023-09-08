@@ -20,24 +20,29 @@ defmodule Ory.Model.OAuth2LoginRequest do
   ]
 
   @type t :: %__MODULE__{
-    :challenge => String.t | nil,
-    :client => Ory.Model.OAuth2Client.t | nil,
-    :oidc_context => Ory.Model.OAuth2ConsentRequestOpenIdConnectContext.t | nil,
-    :request_url => String.t | nil,
-    :requested_access_token_audience => [String.t] | nil,
-    :requested_scope => [String.t] | nil,
-    :session_id => String.t | nil,
-    :skip => boolean() | nil,
-    :subject => String.t | nil
-  }
+          :challenge => String.t() | nil,
+          :client => Ory.Model.OAuth2Client.t() | nil,
+          :oidc_context => Ory.Model.OAuth2ConsentRequestOpenIdConnectContext.t() | nil,
+          :request_url => String.t() | nil,
+          :requested_access_token_audience => [String.t()] | nil,
+          :requested_scope => [String.t()] | nil,
+          :session_id => String.t() | nil,
+          :skip => boolean() | nil,
+          :subject => String.t() | nil
+        }
 end
 
 defimpl Poison.Decoder, for: Ory.Model.OAuth2LoginRequest do
   import Ory.Deserializer
+
   def decode(value, options) do
     value
     |> deserialize(:client, :struct, Ory.Model.OAuth2Client, options)
-    |> deserialize(:oidc_context, :struct, Ory.Model.OAuth2ConsentRequestOpenIdConnectContext, options)
+    |> deserialize(
+      :oidc_context,
+      :struct,
+      Ory.Model.OAuth2ConsentRequestOpenIdConnectContext,
+      options
+    )
   end
 end
-

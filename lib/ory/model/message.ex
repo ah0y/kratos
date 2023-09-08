@@ -3,7 +3,7 @@
 
 defmodule Ory.Model.Message do
   @moduledoc """
-  
+
   """
 
   @derive [Poison.Encoder]
@@ -22,22 +22,23 @@ defmodule Ory.Model.Message do
   ]
 
   @type t :: %__MODULE__{
-    :body => String.t,
-    :created_at => DateTime.t,
-    :dispatches => [Ory.Model.MessageDispatch.t] | nil,
-    :id => String.t,
-    :recipient => String.t,
-    :send_count => integer(),
-    :status => Ory.Model.CourierMessageStatus.t,
-    :subject => String.t,
-    :template_type => String.t,
-    :type => Ory.Model.CourierMessageType.t,
-    :updated_at => DateTime.t
-  }
+          :body => String.t(),
+          :created_at => DateTime.t(),
+          :dispatches => [Ory.Model.MessageDispatch.t()] | nil,
+          :id => String.t(),
+          :recipient => String.t(),
+          :send_count => integer(),
+          :status => Ory.Model.CourierMessageStatus.t(),
+          :subject => String.t(),
+          :template_type => String.t(),
+          :type => Ory.Model.CourierMessageType.t(),
+          :updated_at => DateTime.t()
+        }
 end
 
 defimpl Poison.Decoder, for: Ory.Model.Message do
   import Ory.Deserializer
+
   def decode(value, options) do
     value
     |> deserialize(:dispatches, :list, Ory.Model.MessageDispatch, options)
@@ -45,4 +46,3 @@ defimpl Poison.Decoder, for: Ory.Model.Message do
     |> deserialize(:type, :struct, Ory.Model.CourierMessageType, options)
   end
 end
-

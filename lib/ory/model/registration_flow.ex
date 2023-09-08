@@ -3,7 +3,7 @@
 
 defmodule Ory.Model.RegistrationFlow do
   @moduledoc """
-  
+
   """
 
   @derive [Poison.Encoder]
@@ -23,23 +23,24 @@ defmodule Ory.Model.RegistrationFlow do
   ]
 
   @type t :: %__MODULE__{
-    :active => Ory.Model.IdentityCredentialsType.t | nil,
-    :expires_at => DateTime.t,
-    :id => String.t,
-    :issued_at => DateTime.t,
-    :oauth2_login_challenge => String.t | nil,
-    :oauth2_login_request => Ory.Model.OAuth2LoginRequest.t | nil,
-    :request_url => String.t,
-    :return_to => String.t | nil,
-    :session_token_exchange_code => String.t | nil,
-    :transient_payload => map() | nil,
-    :type => String.t,
-    :ui => Ory.Model.UiContainer.t
-  }
+          :active => Ory.Model.IdentityCredentialsType.t() | nil,
+          :expires_at => DateTime.t(),
+          :id => String.t(),
+          :issued_at => DateTime.t(),
+          :oauth2_login_challenge => String.t() | nil,
+          :oauth2_login_request => Ory.Model.OAuth2LoginRequest.t() | nil,
+          :request_url => String.t(),
+          :return_to => String.t() | nil,
+          :session_token_exchange_code => String.t() | nil,
+          :transient_payload => map() | nil,
+          :type => String.t(),
+          :ui => Ory.Model.UiContainer.t()
+        }
 end
 
 defimpl Poison.Decoder, for: Ory.Model.RegistrationFlow do
   import Ory.Deserializer
+
   def decode(value, options) do
     value
     |> deserialize(:active, :struct, Ory.Model.IdentityCredentialsType, options)
@@ -47,4 +48,3 @@ defimpl Poison.Decoder, for: Ory.Model.RegistrationFlow do
     |> deserialize(:ui, :struct, Ory.Model.UiContainer, options)
   end
 end
-

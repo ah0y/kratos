@@ -22,22 +22,23 @@ defmodule Ory.Model.SettingsFlow do
   ]
 
   @type t :: %__MODULE__{
-    :active => String.t | nil,
-    :continue_with => [Ory.Model.ContinueWith.t] | nil,
-    :expires_at => DateTime.t,
-    :id => String.t,
-    :identity => Ory.Model.Identity.t,
-    :issued_at => DateTime.t,
-    :request_url => String.t,
-    :return_to => String.t | nil,
-    :state => Ory.Model.SettingsFlowState.t,
-    :type => String.t,
-    :ui => Ory.Model.UiContainer.t
-  }
+          :active => String.t() | nil,
+          :continue_with => [Ory.Model.ContinueWith.t()] | nil,
+          :expires_at => DateTime.t(),
+          :id => String.t(),
+          :identity => Ory.Model.Identity.t(),
+          :issued_at => DateTime.t(),
+          :request_url => String.t(),
+          :return_to => String.t() | nil,
+          :state => Ory.Model.SettingsFlowState.t(),
+          :type => String.t(),
+          :ui => Ory.Model.UiContainer.t()
+        }
 end
 
 defimpl Poison.Decoder, for: Ory.Model.SettingsFlow do
   import Ory.Deserializer
+
   def decode(value, options) do
     value
     |> deserialize(:continue_with, :list, Ory.Model.ContinueWith, options)
@@ -46,4 +47,3 @@ defimpl Poison.Decoder, for: Ory.Model.SettingsFlow do
     |> deserialize(:ui, :struct, Ory.Model.UiContainer, options)
   end
 end
-

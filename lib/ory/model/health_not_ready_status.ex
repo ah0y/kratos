@@ -3,7 +3,7 @@
 
 defmodule Ory.Model.HealthNotReadyStatus do
   @moduledoc """
-  
+
   """
 
   @derive [Poison.Encoder]
@@ -12,8 +12,8 @@ defmodule Ory.Model.HealthNotReadyStatus do
   ]
 
   @type t :: %__MODULE__{
-    :errors => %{optional(String.t) => String.t} | nil
-  }
+          :errors => %{optional(String.t()) => String.t()} | nil
+        }
 end
 
 defimpl Poison.Decoder, for: Ory.Model.HealthNotReadyStatus do
@@ -21,4 +21,3 @@ defimpl Poison.Decoder, for: Ory.Model.HealthNotReadyStatus do
     value
   end
 end
-

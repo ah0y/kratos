@@ -13,16 +13,16 @@ defmodule Ory.Model.ContinueWithVerificationUi do
   ]
 
   @type t :: %__MODULE__{
-    :action => String.t,
-    :flow => Ory.Model.ContinueWithVerificationUiFlow.t
-  }
+          :action => String.t(),
+          :flow => Ory.Model.ContinueWithVerificationUiFlow.t()
+        }
 end
 
 defimpl Poison.Decoder, for: Ory.Model.ContinueWithVerificationUi do
   import Ory.Deserializer
+
   def decode(value, options) do
     value
     |> deserialize(:flow, :struct, Ory.Model.ContinueWithVerificationUiFlow, options)
   end
 end
-

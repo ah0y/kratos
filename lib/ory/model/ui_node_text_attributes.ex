@@ -3,7 +3,7 @@
 
 defmodule Ory.Model.UiNodeTextAttributes do
   @moduledoc """
-  
+
   """
 
   @derive [Poison.Encoder]
@@ -14,17 +14,17 @@ defmodule Ory.Model.UiNodeTextAttributes do
   ]
 
   @type t :: %__MODULE__{
-    :id => String.t,
-    :node_type => String.t,
-    :text => Ory.Model.UiText.t
-  }
+          :id => String.t(),
+          :node_type => String.t(),
+          :text => Ory.Model.UiText.t()
+        }
 end
 
 defimpl Poison.Decoder, for: Ory.Model.UiNodeTextAttributes do
   import Ory.Deserializer
+
   def decode(value, options) do
     value
     |> deserialize(:text, :struct, Ory.Model.UiText, options)
   end
 end
-

@@ -16,12 +16,12 @@ defmodule Ory.Model.UpdateLoginFlowWithPasswordMethod do
   ]
 
   @type t :: %__MODULE__{
-    :csrf_token => String.t | nil,
-    :identifier => String.t,
-    :method => String.t,
-    :password => String.t,
-    :password_identifier => String.t | nil
-  }
+          :csrf_token => String.t() | nil,
+          :identifier => String.t(),
+          :method => String.t(),
+          :password => String.t(),
+          :password_identifier => String.t() | nil
+        }
 end
 
 defimpl Poison.Decoder, for: Ory.Model.UpdateLoginFlowWithPasswordMethod do
@@ -29,4 +29,3 @@ defimpl Poison.Decoder, for: Ory.Model.UpdateLoginFlowWithPasswordMethod do
     value
   end
 end
-

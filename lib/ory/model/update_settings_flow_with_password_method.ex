@@ -14,10 +14,10 @@ defmodule Ory.Model.UpdateSettingsFlowWithPasswordMethod do
   ]
 
   @type t :: %__MODULE__{
-    :csrf_token => String.t | nil,
-    :method => String.t,
-    :password => String.t
-  }
+          :csrf_token => String.t() | nil,
+          :method => String.t(),
+          :password => String.t()
+        }
 end
 
 defimpl Poison.Decoder, for: Ory.Model.UpdateSettingsFlowWithPasswordMethod do
@@ -25,4 +25,3 @@ defimpl Poison.Decoder, for: Ory.Model.UpdateSettingsFlowWithPasswordMethod do
     value
   end
 end
-

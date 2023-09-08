@@ -13,9 +13,9 @@ defmodule Ory.Model.IdentityWithCredentialsOidcConfigProvider do
   ]
 
   @type t :: %__MODULE__{
-    :provider => String.t,
-    :subject => String.t
-  }
+          :provider => String.t(),
+          :subject => String.t()
+        }
 end
 
 defimpl Poison.Decoder, for: Ory.Model.IdentityWithCredentialsOidcConfigProvider do
@@ -23,4 +23,3 @@ defimpl Poison.Decoder, for: Ory.Model.IdentityWithCredentialsOidcConfigProvider
     value
   end
 end
-

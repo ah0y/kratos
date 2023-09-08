@@ -17,21 +17,21 @@ defmodule Ory.Model.UpdateIdentityBody do
   ]
 
   @type t :: %__MODULE__{
-    :credentials => Ory.Model.IdentityWithCredentials.t | nil,
-    :metadata_admin => any() | nil,
-    :metadata_public => any() | nil,
-    :schema_id => String.t,
-    :state => Ory.Model.IdentityState.t,
-    :traits => map()
-  }
+          :credentials => Ory.Model.IdentityWithCredentials.t() | nil,
+          :metadata_admin => any() | nil,
+          :metadata_public => any() | nil,
+          :schema_id => String.t(),
+          :state => Ory.Model.IdentityState.t(),
+          :traits => map()
+        }
 end
 
 defimpl Poison.Decoder, for: Ory.Model.UpdateIdentityBody do
   import Ory.Deserializer
+
   def decode(value, options) do
     value
     |> deserialize(:credentials, :struct, Ory.Model.IdentityWithCredentials, options)
     |> deserialize(:state, :struct, Ory.Model.IdentityState, options)
   end
 end
-

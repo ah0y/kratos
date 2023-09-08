@@ -28,7 +28,11 @@ defmodule Ory.Api.Frontend do
   - `{:ok, Ory.Model.LoginFlow.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec create_browser_login_flow(Tesla.Env.client, keyword()) :: {:ok, nil} | {:ok, Ory.Model.ErrorGeneric.t} | {:ok, Ory.Model.LoginFlow.t} | {:error, Tesla.Env.t}
+  @spec create_browser_login_flow(Tesla.Env.client(), keyword()) ::
+          {:ok, nil}
+          | {:ok, Ory.Model.ErrorGeneric.t()}
+          | {:ok, Ory.Model.LoginFlow.t()}
+          | {:error, Tesla.Env.t()}
   def create_browser_login_flow(connection, opts \\ []) do
     optional_params = %{
       :refresh => :query,
@@ -71,7 +75,10 @@ defmodule Ory.Api.Frontend do
   - `{:ok, Ory.Model.LogoutFlow.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec create_browser_logout_flow(Tesla.Env.client, keyword()) :: {:ok, Ory.Model.ErrorGeneric.t} | {:ok, Ory.Model.LogoutFlow.t} | {:error, Tesla.Env.t}
+  @spec create_browser_logout_flow(Tesla.Env.client(), keyword()) ::
+          {:ok, Ory.Model.ErrorGeneric.t()}
+          | {:ok, Ory.Model.LogoutFlow.t()}
+          | {:error, Tesla.Env.t()}
   def create_browser_logout_flow(connection, opts \\ []) do
     optional_params = %{
       :cookie => :headers,
@@ -110,7 +117,11 @@ defmodule Ory.Api.Frontend do
   - `{:ok, Ory.Model.RecoveryFlow.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec create_browser_recovery_flow(Tesla.Env.client, keyword()) :: {:ok, nil} | {:ok, Ory.Model.ErrorGeneric.t} | {:ok, Ory.Model.RecoveryFlow.t} | {:error, Tesla.Env.t}
+  @spec create_browser_recovery_flow(Tesla.Env.client(), keyword()) ::
+          {:ok, nil}
+          | {:ok, Ory.Model.ErrorGeneric.t()}
+          | {:ok, Ory.Model.RecoveryFlow.t()}
+          | {:error, Tesla.Env.t()}
   def create_browser_recovery_flow(connection, opts \\ []) do
     optional_params = %{
       :return_to => :query
@@ -150,7 +161,11 @@ defmodule Ory.Api.Frontend do
   - `{:ok, Ory.Model.RegistrationFlow.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec create_browser_registration_flow(Tesla.Env.client, keyword()) :: {:ok, nil} | {:ok, Ory.Model.ErrorGeneric.t} | {:ok, Ory.Model.RegistrationFlow.t} | {:error, Tesla.Env.t}
+  @spec create_browser_registration_flow(Tesla.Env.client(), keyword()) ::
+          {:ok, nil}
+          | {:ok, Ory.Model.ErrorGeneric.t()}
+          | {:ok, Ory.Model.RegistrationFlow.t()}
+          | {:error, Tesla.Env.t()}
   def create_browser_registration_flow(connection, opts \\ []) do
     optional_params = %{
       :return_to => :query,
@@ -190,7 +205,11 @@ defmodule Ory.Api.Frontend do
   - `{:ok, Ory.Model.SettingsFlow.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec create_browser_settings_flow(Tesla.Env.client, keyword()) :: {:ok, nil} | {:ok, Ory.Model.ErrorGeneric.t} | {:ok, Ory.Model.SettingsFlow.t} | {:error, Tesla.Env.t}
+  @spec create_browser_settings_flow(Tesla.Env.client(), keyword()) ::
+          {:ok, nil}
+          | {:ok, Ory.Model.ErrorGeneric.t()}
+          | {:ok, Ory.Model.SettingsFlow.t()}
+          | {:error, Tesla.Env.t()}
   def create_browser_settings_flow(connection, opts \\ []) do
     optional_params = %{
       :return_to => :query,
@@ -231,7 +250,11 @@ defmodule Ory.Api.Frontend do
   - `{:ok, Ory.Model.VerificationFlow.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec create_browser_verification_flow(Tesla.Env.client, keyword()) :: {:ok, nil} | {:ok, Ory.Model.ErrorGeneric.t} | {:ok, Ory.Model.VerificationFlow.t} | {:error, Tesla.Env.t}
+  @spec create_browser_verification_flow(Tesla.Env.client(), keyword()) ::
+          {:ok, nil}
+          | {:ok, Ory.Model.ErrorGeneric.t()}
+          | {:ok, Ory.Model.VerificationFlow.t()}
+          | {:error, Tesla.Env.t()}
   def create_browser_verification_flow(connection, opts \\ []) do
     optional_params = %{
       :return_to => :query
@@ -272,7 +295,10 @@ defmodule Ory.Api.Frontend do
   - `{:ok, Ory.Model.LoginFlow.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec create_native_login_flow(Tesla.Env.client, keyword()) :: {:ok, Ory.Model.ErrorGeneric.t} | {:ok, Ory.Model.LoginFlow.t} | {:error, Tesla.Env.t}
+  @spec create_native_login_flow(Tesla.Env.client(), keyword()) ::
+          {:ok, Ory.Model.ErrorGeneric.t()}
+          | {:ok, Ory.Model.LoginFlow.t()}
+          | {:error, Tesla.Env.t()}
   def create_native_login_flow(connection, opts \\ []) do
     optional_params = %{
       :refresh => :query,
@@ -312,7 +338,10 @@ defmodule Ory.Api.Frontend do
   - `{:ok, Ory.Model.RecoveryFlow.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec create_native_recovery_flow(Tesla.Env.client, keyword()) :: {:ok, Ory.Model.ErrorGeneric.t} | {:ok, Ory.Model.RecoveryFlow.t} | {:error, Tesla.Env.t}
+  @spec create_native_recovery_flow(Tesla.Env.client(), keyword()) ::
+          {:ok, Ory.Model.ErrorGeneric.t()}
+          | {:ok, Ory.Model.RecoveryFlow.t()}
+          | {:error, Tesla.Env.t()}
   def create_native_recovery_flow(connection, _opts \\ []) do
     request =
       %{}
@@ -345,7 +374,10 @@ defmodule Ory.Api.Frontend do
   - `{:ok, Ory.Model.RegistrationFlow.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec create_native_registration_flow(Tesla.Env.client, keyword()) :: {:ok, Ory.Model.ErrorGeneric.t} | {:ok, Ory.Model.RegistrationFlow.t} | {:error, Tesla.Env.t}
+  @spec create_native_registration_flow(Tesla.Env.client(), keyword()) ::
+          {:ok, Ory.Model.ErrorGeneric.t()}
+          | {:ok, Ory.Model.RegistrationFlow.t()}
+          | {:error, Tesla.Env.t()}
   def create_native_registration_flow(connection, opts \\ []) do
     optional_params = %{
       :return_session_token_exchange_code => :query,
@@ -383,7 +415,10 @@ defmodule Ory.Api.Frontend do
   - `{:ok, Ory.Model.SettingsFlow.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec create_native_settings_flow(Tesla.Env.client, keyword()) :: {:ok, Ory.Model.ErrorGeneric.t} | {:ok, Ory.Model.SettingsFlow.t} | {:error, Tesla.Env.t}
+  @spec create_native_settings_flow(Tesla.Env.client(), keyword()) ::
+          {:ok, Ory.Model.ErrorGeneric.t()}
+          | {:ok, Ory.Model.SettingsFlow.t()}
+          | {:error, Tesla.Env.t()}
   def create_native_settings_flow(connection, opts \\ []) do
     optional_params = %{
       :"X-Session-Token" => :headers
@@ -419,7 +454,10 @@ defmodule Ory.Api.Frontend do
   - `{:ok, Ory.Model.VerificationFlow.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec create_native_verification_flow(Tesla.Env.client, keyword()) :: {:ok, Ory.Model.ErrorGeneric.t} | {:ok, Ory.Model.VerificationFlow.t} | {:error, Tesla.Env.t}
+  @spec create_native_verification_flow(Tesla.Env.client(), keyword()) ::
+          {:ok, Ory.Model.ErrorGeneric.t()}
+          | {:ok, Ory.Model.VerificationFlow.t()}
+          | {:error, Tesla.Env.t()}
   def create_native_verification_flow(connection, _opts \\ []) do
     request =
       %{}
@@ -452,7 +490,10 @@ defmodule Ory.Api.Frontend do
   - `{:ok, Ory.Model.DeleteMySessionsCount.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec disable_my_other_sessions(Tesla.Env.client, keyword()) :: {:ok, Ory.Model.DeleteMySessionsCount.t} | {:ok, Ory.Model.ErrorGeneric.t} | {:error, Tesla.Env.t}
+  @spec disable_my_other_sessions(Tesla.Env.client(), keyword()) ::
+          {:ok, Ory.Model.DeleteMySessionsCount.t()}
+          | {:ok, Ory.Model.ErrorGeneric.t()}
+          | {:error, Tesla.Env.t()}
   def disable_my_other_sessions(connection, opts \\ []) do
     optional_params = %{
       :"X-Session-Token" => :headers,
@@ -493,7 +534,8 @@ defmodule Ory.Api.Frontend do
   - `{:ok, nil}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec disable_my_session(Tesla.Env.client, String.t, keyword()) :: {:ok, nil} | {:ok, Ory.Model.ErrorGeneric.t} | {:error, Tesla.Env.t}
+  @spec disable_my_session(Tesla.Env.client(), String.t(), keyword()) ::
+          {:ok, nil} | {:ok, Ory.Model.ErrorGeneric.t()} | {:error, Tesla.Env.t()}
   def disable_my_session(connection, id, opts \\ []) do
     optional_params = %{
       :"X-Session-Token" => :headers,
@@ -532,7 +574,10 @@ defmodule Ory.Api.Frontend do
   - `{:ok, Ory.Model.SuccessfulNativeLogin.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec exchange_session_token(Tesla.Env.client, String.t, String.t, keyword()) :: {:ok, Ory.Model.ErrorGeneric.t} | {:ok, Ory.Model.SuccessfulNativeLogin.t} | {:error, Tesla.Env.t}
+  @spec exchange_session_token(Tesla.Env.client(), String.t(), String.t(), keyword()) ::
+          {:ok, Ory.Model.ErrorGeneric.t()}
+          | {:ok, Ory.Model.SuccessfulNativeLogin.t()}
+          | {:error, Tesla.Env.t()}
   def exchange_session_token(connection, init_code, return_to_code, _opts \\ []) do
     request =
       %{}
@@ -568,7 +613,10 @@ defmodule Ory.Api.Frontend do
   - `{:ok, Ory.Model.FlowError.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec get_flow_error(Tesla.Env.client, String.t, keyword()) :: {:ok, Ory.Model.FlowError.t} | {:ok, Ory.Model.ErrorGeneric.t} | {:error, Tesla.Env.t}
+  @spec get_flow_error(Tesla.Env.client(), String.t(), keyword()) ::
+          {:ok, Ory.Model.FlowError.t()}
+          | {:ok, Ory.Model.ErrorGeneric.t()}
+          | {:error, Tesla.Env.t()}
   def get_flow_error(connection, id, _opts \\ []) do
     request =
       %{}
@@ -603,7 +651,10 @@ defmodule Ory.Api.Frontend do
   - `{:ok, Ory.Model.LoginFlow.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec get_login_flow(Tesla.Env.client, String.t, keyword()) :: {:ok, Ory.Model.ErrorGeneric.t} | {:ok, Ory.Model.LoginFlow.t} | {:error, Tesla.Env.t}
+  @spec get_login_flow(Tesla.Env.client(), String.t(), keyword()) ::
+          {:ok, Ory.Model.ErrorGeneric.t()}
+          | {:ok, Ory.Model.LoginFlow.t()}
+          | {:error, Tesla.Env.t()}
   def get_login_flow(connection, id, opts \\ []) do
     optional_params = %{
       :Cookie => :headers
@@ -644,7 +695,10 @@ defmodule Ory.Api.Frontend do
   - `{:ok, Ory.Model.RecoveryFlow.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec get_recovery_flow(Tesla.Env.client, String.t, keyword()) :: {:ok, Ory.Model.ErrorGeneric.t} | {:ok, Ory.Model.RecoveryFlow.t} | {:error, Tesla.Env.t}
+  @spec get_recovery_flow(Tesla.Env.client(), String.t(), keyword()) ::
+          {:ok, Ory.Model.ErrorGeneric.t()}
+          | {:ok, Ory.Model.RecoveryFlow.t()}
+          | {:error, Tesla.Env.t()}
   def get_recovery_flow(connection, id, opts \\ []) do
     optional_params = %{
       :Cookie => :headers
@@ -684,7 +738,10 @@ defmodule Ory.Api.Frontend do
   - `{:ok, Ory.Model.RegistrationFlow.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec get_registration_flow(Tesla.Env.client, String.t, keyword()) :: {:ok, Ory.Model.ErrorGeneric.t} | {:ok, Ory.Model.RegistrationFlow.t} | {:error, Tesla.Env.t}
+  @spec get_registration_flow(Tesla.Env.client(), String.t(), keyword()) ::
+          {:ok, Ory.Model.ErrorGeneric.t()}
+          | {:ok, Ory.Model.RegistrationFlow.t()}
+          | {:error, Tesla.Env.t()}
   def get_registration_flow(connection, id, opts \\ []) do
     optional_params = %{
       :Cookie => :headers
@@ -726,7 +783,10 @@ defmodule Ory.Api.Frontend do
   - `{:ok, Ory.Model.SettingsFlow.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec get_settings_flow(Tesla.Env.client, String.t, keyword()) :: {:ok, Ory.Model.ErrorGeneric.t} | {:ok, Ory.Model.SettingsFlow.t} | {:error, Tesla.Env.t}
+  @spec get_settings_flow(Tesla.Env.client(), String.t(), keyword()) ::
+          {:ok, Ory.Model.ErrorGeneric.t()}
+          | {:ok, Ory.Model.SettingsFlow.t()}
+          | {:error, Tesla.Env.t()}
   def get_settings_flow(connection, id, opts \\ []) do
     optional_params = %{
       :"X-Session-Token" => :headers,
@@ -769,7 +829,10 @@ defmodule Ory.Api.Frontend do
   - `{:ok, Ory.Model.VerificationFlow.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec get_verification_flow(Tesla.Env.client, String.t, keyword()) :: {:ok, Ory.Model.ErrorGeneric.t} | {:ok, Ory.Model.VerificationFlow.t} | {:error, Tesla.Env.t}
+  @spec get_verification_flow(Tesla.Env.client(), String.t(), keyword()) ::
+          {:ok, Ory.Model.ErrorGeneric.t()}
+          | {:ok, Ory.Model.VerificationFlow.t()}
+          | {:error, Tesla.Env.t()}
   def get_verification_flow(connection, id, opts \\ []) do
     optional_params = %{
       :cookie => :headers
@@ -807,7 +870,8 @@ defmodule Ory.Api.Frontend do
   - `{:ok, String.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec get_web_authn_java_script(Tesla.Env.client, keyword()) :: {:ok, String.t} | {:error, Tesla.Env.t}
+  @spec get_web_authn_java_script(Tesla.Env.client(), keyword()) ::
+          {:ok, String.t()} | {:error, Tesla.Env.t()}
   def get_web_authn_java_script(connection, _opts \\ []) do
     request =
       %{}
@@ -840,7 +904,10 @@ defmodule Ory.Api.Frontend do
   - `{:ok, [%Session{}, ...]}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec list_my_sessions(Tesla.Env.client, keyword()) :: {:ok, list(Ory.Model.Session.t)} | {:ok, Ory.Model.ErrorGeneric.t} | {:error, Tesla.Env.t}
+  @spec list_my_sessions(Tesla.Env.client(), keyword()) ::
+          {:ok, list(Ory.Model.Session.t())}
+          | {:ok, Ory.Model.ErrorGeneric.t()}
+          | {:error, Tesla.Env.t()}
   def list_my_sessions(connection, opts \\ []) do
     optional_params = %{
       :per_page => :query,
@@ -881,7 +948,11 @@ defmodule Ory.Api.Frontend do
   - `{:ok, nil}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec perform_native_logout(Tesla.Env.client, Ory.Model.PerformNativeLogoutBody.t, keyword()) :: {:ok, nil} | {:ok, Ory.Model.ErrorGeneric.t} | {:error, Tesla.Env.t}
+  @spec perform_native_logout(
+          Tesla.Env.client(),
+          Ory.Model.PerformNativeLogoutBody.t(),
+          keyword()
+        ) :: {:ok, nil} | {:ok, Ory.Model.ErrorGeneric.t()} | {:error, Tesla.Env.t()}
   def perform_native_logout(connection, perform_native_logout_body, _opts \\ []) do
     request =
       %{}
@@ -915,7 +986,10 @@ defmodule Ory.Api.Frontend do
   - `{:ok, Ory.Model.Session.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec to_session(Tesla.Env.client, keyword()) :: {:ok, Ory.Model.ErrorGeneric.t} | {:ok, Ory.Model.Session.t} | {:error, Tesla.Env.t}
+  @spec to_session(Tesla.Env.client(), keyword()) ::
+          {:ok, Ory.Model.ErrorGeneric.t()}
+          | {:ok, Ory.Model.Session.t()}
+          | {:error, Tesla.Env.t()}
   def to_session(connection, opts \\ []) do
     optional_params = %{
       :"X-Session-Token" => :headers,
@@ -957,7 +1031,18 @@ defmodule Ory.Api.Frontend do
   - `{:ok, Ory.Model.SuccessfulNativeLogin.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec update_login_flow(Tesla.Env.client, String.t, Ory.Model.UpdateLoginFlowBody.t, keyword()) :: {:ok, nil} | {:ok, Ory.Model.ErrorGeneric.t} | {:ok, Ory.Model.LoginFlow.t} | {:ok, Ory.Model.ErrorBrowserLocationChangeRequired.t} | {:ok, Ory.Model.SuccessfulNativeLogin.t} | {:error, Tesla.Env.t}
+  @spec update_login_flow(
+          Tesla.Env.client(),
+          String.t(),
+          Ory.Model.UpdateLoginFlowBody.t(),
+          keyword()
+        ) ::
+          {:ok, nil}
+          | {:ok, Ory.Model.ErrorGeneric.t()}
+          | {:ok, Ory.Model.LoginFlow.t()}
+          | {:ok, Ory.Model.ErrorBrowserLocationChangeRequired.t()}
+          | {:ok, Ory.Model.SuccessfulNativeLogin.t()}
+          | {:error, Tesla.Env.t()}
   def update_login_flow(connection, flow, update_login_flow_body, opts \\ []) do
     optional_params = %{
       :"X-Session-Token" => :headers,
@@ -1002,7 +1087,8 @@ defmodule Ory.Api.Frontend do
   - `{:ok, nil}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec update_logout_flow(Tesla.Env.client, keyword()) :: {:ok, nil} | {:ok, Ory.Model.ErrorGeneric.t} | {:error, Tesla.Env.t}
+  @spec update_logout_flow(Tesla.Env.client(), keyword()) ::
+          {:ok, nil} | {:ok, Ory.Model.ErrorGeneric.t()} | {:error, Tesla.Env.t()}
   def update_logout_flow(connection, opts \\ []) do
     optional_params = %{
       :token => :query,
@@ -1044,7 +1130,17 @@ defmodule Ory.Api.Frontend do
   - `{:ok, Ory.Model.RecoveryFlow.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec update_recovery_flow(Tesla.Env.client, String.t, Ory.Model.UpdateRecoveryFlowBody.t, keyword()) :: {:ok, nil} | {:ok, Ory.Model.ErrorGeneric.t} | {:ok, Ory.Model.RecoveryFlow.t} | {:ok, Ory.Model.ErrorBrowserLocationChangeRequired.t} | {:error, Tesla.Env.t}
+  @spec update_recovery_flow(
+          Tesla.Env.client(),
+          String.t(),
+          Ory.Model.UpdateRecoveryFlowBody.t(),
+          keyword()
+        ) ::
+          {:ok, nil}
+          | {:ok, Ory.Model.ErrorGeneric.t()}
+          | {:ok, Ory.Model.RecoveryFlow.t()}
+          | {:ok, Ory.Model.ErrorBrowserLocationChangeRequired.t()}
+          | {:error, Tesla.Env.t()}
   def update_recovery_flow(connection, flow, update_recovery_flow_body, opts \\ []) do
     optional_params = %{
       :token => :query,
@@ -1089,7 +1185,18 @@ defmodule Ory.Api.Frontend do
   - `{:ok, Ory.Model.SuccessfulNativeRegistration.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec update_registration_flow(Tesla.Env.client, String.t, Ory.Model.UpdateRegistrationFlowBody.t, keyword()) :: {:ok, nil} | {:ok, Ory.Model.ErrorGeneric.t} | {:ok, Ory.Model.ErrorBrowserLocationChangeRequired.t} | {:ok, Ory.Model.RegistrationFlow.t} | {:ok, Ory.Model.SuccessfulNativeRegistration.t} | {:error, Tesla.Env.t}
+  @spec update_registration_flow(
+          Tesla.Env.client(),
+          String.t(),
+          Ory.Model.UpdateRegistrationFlowBody.t(),
+          keyword()
+        ) ::
+          {:ok, nil}
+          | {:ok, Ory.Model.ErrorGeneric.t()}
+          | {:ok, Ory.Model.ErrorBrowserLocationChangeRequired.t()}
+          | {:ok, Ory.Model.RegistrationFlow.t()}
+          | {:ok, Ory.Model.SuccessfulNativeRegistration.t()}
+          | {:error, Tesla.Env.t()}
   def update_registration_flow(connection, flow, update_registration_flow_body, opts \\ []) do
     optional_params = %{
       :Cookie => :headers
@@ -1134,7 +1241,17 @@ defmodule Ory.Api.Frontend do
   - `{:ok, Ory.Model.SettingsFlow.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec update_settings_flow(Tesla.Env.client, String.t, Ory.Model.UpdateSettingsFlowBody.t, keyword()) :: {:ok, nil} | {:ok, Ory.Model.ErrorGeneric.t} | {:ok, Ory.Model.ErrorBrowserLocationChangeRequired.t} | {:ok, Ory.Model.SettingsFlow.t} | {:error, Tesla.Env.t}
+  @spec update_settings_flow(
+          Tesla.Env.client(),
+          String.t(),
+          Ory.Model.UpdateSettingsFlowBody.t(),
+          keyword()
+        ) ::
+          {:ok, nil}
+          | {:ok, Ory.Model.ErrorGeneric.t()}
+          | {:ok, Ory.Model.ErrorBrowserLocationChangeRequired.t()}
+          | {:ok, Ory.Model.SettingsFlow.t()}
+          | {:error, Tesla.Env.t()}
   def update_settings_flow(connection, flow, update_settings_flow_body, opts \\ []) do
     optional_params = %{
       :"X-Session-Token" => :headers,
@@ -1182,7 +1299,16 @@ defmodule Ory.Api.Frontend do
   - `{:ok, Ory.Model.VerificationFlow.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec update_verification_flow(Tesla.Env.client, String.t, Ory.Model.UpdateVerificationFlowBody.t, keyword()) :: {:ok, nil} | {:ok, Ory.Model.ErrorGeneric.t} | {:ok, Ory.Model.VerificationFlow.t} | {:error, Tesla.Env.t}
+  @spec update_verification_flow(
+          Tesla.Env.client(),
+          String.t(),
+          Ory.Model.UpdateVerificationFlowBody.t(),
+          keyword()
+        ) ::
+          {:ok, nil}
+          | {:ok, Ory.Model.ErrorGeneric.t()}
+          | {:ok, Ory.Model.VerificationFlow.t()}
+          | {:error, Tesla.Env.t()}
   def update_verification_flow(connection, flow, update_verification_flow_body, opts \\ []) do
     optional_params = %{
       :token => :query,

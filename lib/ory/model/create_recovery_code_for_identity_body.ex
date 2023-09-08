@@ -13,9 +13,9 @@ defmodule Ory.Model.CreateRecoveryCodeForIdentityBody do
   ]
 
   @type t :: %__MODULE__{
-    :expires_in => String.t | nil,
-    :identity_id => String.t
-  }
+          :expires_in => String.t() | nil,
+          :identity_id => String.t()
+        }
 end
 
 defimpl Poison.Decoder, for: Ory.Model.CreateRecoveryCodeForIdentityBody do
@@ -23,4 +23,3 @@ defimpl Poison.Decoder, for: Ory.Model.CreateRecoveryCodeForIdentityBody do
     value
   end
 end
-

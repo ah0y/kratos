@@ -19,19 +19,20 @@ defmodule Ory.Model.CreateIdentityBody do
   ]
 
   @type t :: %__MODULE__{
-    :credentials => Ory.Model.IdentityWithCredentials.t | nil,
-    :metadata_admin => any() | nil,
-    :metadata_public => any() | nil,
-    :recovery_addresses => [Ory.Model.RecoveryIdentityAddress.t] | nil,
-    :schema_id => String.t,
-    :state => Ory.Model.IdentityState.t | nil,
-    :traits => map(),
-    :verifiable_addresses => [Ory.Model.VerifiableIdentityAddress.t] | nil
-  }
+          :credentials => Ory.Model.IdentityWithCredentials.t() | nil,
+          :metadata_admin => any() | nil,
+          :metadata_public => any() | nil,
+          :recovery_addresses => [Ory.Model.RecoveryIdentityAddress.t()] | nil,
+          :schema_id => String.t(),
+          :state => Ory.Model.IdentityState.t() | nil,
+          :traits => map(),
+          :verifiable_addresses => [Ory.Model.VerifiableIdentityAddress.t()] | nil
+        }
 end
 
 defimpl Poison.Decoder, for: Ory.Model.CreateIdentityBody do
   import Ory.Deserializer
+
   def decode(value, options) do
     value
     |> deserialize(:credentials, :struct, Ory.Model.IdentityWithCredentials, options)
@@ -40,4 +41,3 @@ defimpl Poison.Decoder, for: Ory.Model.CreateIdentityBody do
     |> deserialize(:verifiable_addresses, :list, Ory.Model.VerifiableIdentityAddress, options)
   end
 end
-

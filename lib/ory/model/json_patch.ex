@@ -15,11 +15,11 @@ defmodule Ory.Model.JsonPatch do
   ]
 
   @type t :: %__MODULE__{
-    :from => String.t | nil,
-    :op => String.t,
-    :path => String.t,
-    :value => any() | nil
-  }
+          :from => String.t() | nil,
+          :op => String.t(),
+          :path => String.t(),
+          :value => any() | nil
+        }
 end
 
 defimpl Poison.Decoder, for: Ory.Model.JsonPatch do
@@ -27,4 +27,3 @@ defimpl Poison.Decoder, for: Ory.Model.JsonPatch do
     value
   end
 end
-

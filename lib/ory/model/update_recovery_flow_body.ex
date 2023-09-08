@@ -15,11 +15,11 @@ defmodule Ory.Model.UpdateRecoveryFlowBody do
   ]
 
   @type t :: %__MODULE__{
-    :csrf_token => String.t | nil,
-    :email => String.t,
-    :method => String.t,
-    :code => String.t | nil
-  }
+          :csrf_token => String.t() | nil,
+          :email => String.t(),
+          :method => String.t(),
+          :code => String.t() | nil
+        }
 end
 
 defimpl Poison.Decoder, for: Ory.Model.UpdateRecoveryFlowBody do
@@ -27,4 +27,3 @@ defimpl Poison.Decoder, for: Ory.Model.UpdateRecoveryFlowBody do
     value
   end
 end
-

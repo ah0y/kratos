@@ -15,11 +15,11 @@ defmodule Ory.Model.UpdateSettingsFlowWithTotpMethod do
   ]
 
   @type t :: %__MODULE__{
-    :csrf_token => String.t | nil,
-    :method => String.t,
-    :totp_code => String.t | nil,
-    :totp_unlink => boolean() | nil
-  }
+          :csrf_token => String.t() | nil,
+          :method => String.t(),
+          :totp_code => String.t() | nil,
+          :totp_unlink => boolean() | nil
+        }
 end
 
 defimpl Poison.Decoder, for: Ory.Model.UpdateSettingsFlowWithTotpMethod do
@@ -27,4 +27,3 @@ defimpl Poison.Decoder, for: Ory.Model.UpdateSettingsFlowWithTotpMethod do
     value
   end
 end
-

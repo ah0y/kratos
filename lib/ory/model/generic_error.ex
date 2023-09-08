@@ -3,7 +3,7 @@
 
 defmodule Ory.Model.GenericError do
   @moduledoc """
-  
+
   """
 
   @derive [Poison.Encoder]
@@ -19,15 +19,15 @@ defmodule Ory.Model.GenericError do
   ]
 
   @type t :: %__MODULE__{
-    :code => integer() | nil,
-    :debug => String.t | nil,
-    :details => map() | nil,
-    :id => String.t | nil,
-    :message => String.t,
-    :reason => String.t | nil,
-    :request => String.t | nil,
-    :status => String.t | nil
-  }
+          :code => integer() | nil,
+          :debug => String.t() | nil,
+          :details => map() | nil,
+          :id => String.t() | nil,
+          :message => String.t(),
+          :reason => String.t() | nil,
+          :request => String.t() | nil,
+          :status => String.t() | nil
+        }
 end
 
 defimpl Poison.Decoder, for: Ory.Model.GenericError do
@@ -35,4 +35,3 @@ defimpl Poison.Decoder, for: Ory.Model.GenericError do
     value
   end
 end
-

@@ -3,7 +3,7 @@
 
 defmodule Ory.Model.UpdateVerificationFlowWithCodeMethod do
   @moduledoc """
-  
+
   """
 
   @derive [Poison.Encoder]
@@ -15,11 +15,11 @@ defmodule Ory.Model.UpdateVerificationFlowWithCodeMethod do
   ]
 
   @type t :: %__MODULE__{
-    :code => String.t | nil,
-    :csrf_token => String.t | nil,
-    :email => String.t | nil,
-    :method => String.t
-  }
+          :code => String.t() | nil,
+          :csrf_token => String.t() | nil,
+          :email => String.t() | nil,
+          :method => String.t()
+        }
 end
 
 defimpl Poison.Decoder, for: Ory.Model.UpdateVerificationFlowWithCodeMethod do
@@ -27,4 +27,3 @@ defimpl Poison.Decoder, for: Ory.Model.UpdateVerificationFlowWithCodeMethod do
     value
   end
 end
-

@@ -24,7 +24,10 @@ defmodule Ory.Api.Courier do
   - `{:ok, Ory.Model.Message.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec get_courier_message(Tesla.Env.client, String.t, keyword()) :: {:ok, Ory.Model.Message.t} | {:ok, Ory.Model.ErrorGeneric.t} | {:error, Tesla.Env.t}
+  @spec get_courier_message(Tesla.Env.client(), String.t(), keyword()) ::
+          {:ok, Ory.Model.Message.t()}
+          | {:ok, Ory.Model.ErrorGeneric.t()}
+          | {:error, Tesla.Env.t()}
   def get_courier_message(connection, id, _opts \\ []) do
     request =
       %{}
@@ -59,7 +62,10 @@ defmodule Ory.Api.Courier do
   - `{:ok, [%Message{}, ...]}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec list_courier_messages(Tesla.Env.client, keyword()) :: {:ok, list(Ory.Model.Message.t)} | {:ok, Ory.Model.ErrorGeneric.t} | {:error, Tesla.Env.t}
+  @spec list_courier_messages(Tesla.Env.client(), keyword()) ::
+          {:ok, list(Ory.Model.Message.t())}
+          | {:ok, Ory.Model.ErrorGeneric.t()}
+          | {:error, Tesla.Env.t()}
   def list_courier_messages(connection, opts \\ []) do
     optional_params = %{
       :page_size => :query,

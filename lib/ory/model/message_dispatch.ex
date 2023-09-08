@@ -17,13 +17,13 @@ defmodule Ory.Model.MessageDispatch do
   ]
 
   @type t :: %__MODULE__{
-    :created_at => DateTime.t,
-    :error => map() | nil,
-    :id => String.t,
-    :message_id => String.t,
-    :status => String.t,
-    :updated_at => DateTime.t
-  }
+          :created_at => DateTime.t(),
+          :error => map() | nil,
+          :id => String.t(),
+          :message_id => String.t(),
+          :status => String.t(),
+          :updated_at => DateTime.t()
+        }
 end
 
 defimpl Poison.Decoder, for: Ory.Model.MessageDispatch do
@@ -31,4 +31,3 @@ defimpl Poison.Decoder, for: Ory.Model.MessageDispatch do
     value
   end
 end
-

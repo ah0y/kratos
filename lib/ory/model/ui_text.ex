@@ -3,7 +3,7 @@
 
 defmodule Ory.Model.UiText do
   @moduledoc """
-  
+
   """
 
   @derive [Poison.Encoder]
@@ -15,11 +15,11 @@ defmodule Ory.Model.UiText do
   ]
 
   @type t :: %__MODULE__{
-    :context => map() | nil,
-    :id => integer(),
-    :text => String.t,
-    :type => String.t
-  }
+          :context => map() | nil,
+          :id => integer(),
+          :text => String.t(),
+          :type => String.t()
+        }
 end
 
 defimpl Poison.Decoder, for: Ory.Model.UiText do
@@ -27,4 +27,3 @@ defimpl Poison.Decoder, for: Ory.Model.UiText do
     value
   end
 end
-

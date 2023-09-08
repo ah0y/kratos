@@ -23,7 +23,8 @@ defmodule Ory.Api.Metadata do
   - `{:ok, Ory.Model.GetVersion200Response.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec get_version(Tesla.Env.client, keyword()) :: {:ok, Ory.Model.GetVersion200Response.t} | {:error, Tesla.Env.t}
+  @spec get_version(Tesla.Env.client(), keyword()) ::
+          {:ok, Ory.Model.GetVersion200Response.t()} | {:error, Tesla.Env.t()}
   def get_version(connection, _opts \\ []) do
     request =
       %{}
@@ -52,7 +53,8 @@ defmodule Ory.Api.Metadata do
   - `{:ok, Ory.Model.IsAlive200Response.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec is_alive(Tesla.Env.client, keyword()) :: {:ok, Ory.Model.IsAlive200Response.t} | {:ok, String.t} | {:error, Tesla.Env.t}
+  @spec is_alive(Tesla.Env.client(), keyword()) ::
+          {:ok, Ory.Model.IsAlive200Response.t()} | {:ok, String.t()} | {:error, Tesla.Env.t()}
   def is_alive(connection, _opts \\ []) do
     request =
       %{}
@@ -82,7 +84,11 @@ defmodule Ory.Api.Metadata do
   - `{:ok, Ory.Model.IsAlive200Response.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec is_ready(Tesla.Env.client, keyword()) :: {:ok, Ory.Model.IsAlive200Response.t} | {:ok, Ory.Model.IsReady503Response.t} | {:ok, String.t} | {:error, Tesla.Env.t}
+  @spec is_ready(Tesla.Env.client(), keyword()) ::
+          {:ok, Ory.Model.IsAlive200Response.t()}
+          | {:ok, Ory.Model.IsReady503Response.t()}
+          | {:ok, String.t()}
+          | {:error, Tesla.Env.t()}
   def is_ready(connection, _opts \\ []) do
     request =
       %{}

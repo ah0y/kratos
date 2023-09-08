@@ -7,13 +7,9 @@ defmodule Ory.Model.SettingsFlowState do
   """
 
   @derive [Poison.Encoder]
-  defstruct [
-    
-  ]
+  defstruct []
 
-  @type t :: %__MODULE__{
-    
-  }
+  @type t :: %__MODULE__{}
 end
 
 defimpl Poison.Decoder, for: Ory.Model.SettingsFlowState do
@@ -21,4 +17,3 @@ defimpl Poison.Decoder, for: Ory.Model.SettingsFlowState do
     value
   end
 end
-

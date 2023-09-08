@@ -13,16 +13,16 @@ defmodule Ory.Model.IdentityPatch do
   ]
 
   @type t :: %__MODULE__{
-    :create => Ory.Model.CreateIdentityBody.t | nil,
-    :patch_id => String.t | nil
-  }
+          :create => Ory.Model.CreateIdentityBody.t() | nil,
+          :patch_id => String.t() | nil
+        }
 end
 
 defimpl Poison.Decoder, for: Ory.Model.IdentityPatch do
   import Ory.Deserializer
+
   def decode(value, options) do
     value
     |> deserialize(:create, :struct, Ory.Model.CreateIdentityBody, options)
   end
 end
-

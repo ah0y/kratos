@@ -3,7 +3,7 @@
 
 defmodule Ory.Model.IsReady503Response do
   @moduledoc """
-  
+
   """
 
   @derive [Poison.Encoder]
@@ -12,8 +12,8 @@ defmodule Ory.Model.IsReady503Response do
   ]
 
   @type t :: %__MODULE__{
-    :errors => %{optional(String.t) => String.t}
-  }
+          :errors => %{optional(String.t()) => String.t()}
+        }
 end
 
 defimpl Poison.Decoder, for: Ory.Model.IsReady503Response do
@@ -21,4 +21,3 @@ defimpl Poison.Decoder, for: Ory.Model.IsReady503Response do
     value
   end
 end
-

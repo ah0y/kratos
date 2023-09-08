@@ -12,8 +12,8 @@ defmodule Ory.Model.DeleteMySessionsCount do
   ]
 
   @type t :: %__MODULE__{
-    :count => integer() | nil
-  }
+          :count => integer() | nil
+        }
 end
 
 defimpl Poison.Decoder, for: Ory.Model.DeleteMySessionsCount do
@@ -21,4 +21,3 @@ defimpl Poison.Decoder, for: Ory.Model.DeleteMySessionsCount do
     value
   end
 end
-

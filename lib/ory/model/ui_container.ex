@@ -15,19 +15,19 @@ defmodule Ory.Model.UiContainer do
   ]
 
   @type t :: %__MODULE__{
-    :action => String.t,
-    :messages => [Ory.Model.UiText.t] | nil,
-    :method => String.t,
-    :nodes => [Ory.Model.UiNode.t]
-  }
+          :action => String.t(),
+          :messages => [Ory.Model.UiText.t()] | nil,
+          :method => String.t(),
+          :nodes => [Ory.Model.UiNode.t()]
+        }
 end
 
 defimpl Poison.Decoder, for: Ory.Model.UiContainer do
   import Ory.Deserializer
+
   def decode(value, options) do
     value
     |> deserialize(:messages, :list, Ory.Model.UiText, options)
     |> deserialize(:nodes, :list, Ory.Model.UiNode, options)
   end
 end
-

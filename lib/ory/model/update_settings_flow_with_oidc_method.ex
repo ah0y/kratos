@@ -17,13 +17,13 @@ defmodule Ory.Model.UpdateSettingsFlowWithOidcMethod do
   ]
 
   @type t :: %__MODULE__{
-    :flow => String.t | nil,
-    :link => String.t | nil,
-    :method => String.t,
-    :traits => map() | nil,
-    :unlink => String.t | nil,
-    :upstream_parameters => map() | nil
-  }
+          :flow => String.t() | nil,
+          :link => String.t() | nil,
+          :method => String.t(),
+          :traits => map() | nil,
+          :unlink => String.t() | nil,
+          :upstream_parameters => map() | nil
+        }
 end
 
 defimpl Poison.Decoder, for: Ory.Model.UpdateSettingsFlowWithOidcMethod do
@@ -31,4 +31,3 @@ defimpl Poison.Decoder, for: Ory.Model.UpdateSettingsFlowWithOidcMethod do
     value
   end
 end
-

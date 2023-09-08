@@ -20,24 +20,24 @@ defmodule Ory.Model.RecoveryFlow do
   ]
 
   @type t :: %__MODULE__{
-    :active => String.t | nil,
-    :expires_at => DateTime.t,
-    :id => String.t,
-    :issued_at => DateTime.t,
-    :request_url => String.t,
-    :return_to => String.t | nil,
-    :state => Ory.Model.RecoveryFlowState.t,
-    :type => String.t,
-    :ui => Ory.Model.UiContainer.t
-  }
+          :active => String.t() | nil,
+          :expires_at => DateTime.t(),
+          :id => String.t(),
+          :issued_at => DateTime.t(),
+          :request_url => String.t(),
+          :return_to => String.t() | nil,
+          :state => Ory.Model.RecoveryFlowState.t(),
+          :type => String.t(),
+          :ui => Ory.Model.UiContainer.t()
+        }
 end
 
 defimpl Poison.Decoder, for: Ory.Model.RecoveryFlow do
   import Ory.Deserializer
+
   def decode(value, options) do
     value
     |> deserialize(:state, :struct, Ory.Model.RecoveryFlowState, options)
     |> deserialize(:ui, :struct, Ory.Model.UiContainer, options)
   end
 end
-

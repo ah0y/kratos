@@ -12,8 +12,8 @@ defmodule Ory.Model.PerformNativeLogoutBody do
   ]
 
   @type t :: %__MODULE__{
-    :session_token => String.t
-  }
+          :session_token => String.t()
+        }
 end
 
 defimpl Poison.Decoder, for: Ory.Model.PerformNativeLogoutBody do
@@ -21,4 +21,3 @@ defimpl Poison.Decoder, for: Ory.Model.PerformNativeLogoutBody do
     value
   end
 end
-

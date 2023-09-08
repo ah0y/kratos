@@ -14,10 +14,10 @@ defmodule Ory.Model.UpdateSettingsFlowWithProfileMethod do
   ]
 
   @type t :: %__MODULE__{
-    :csrf_token => String.t | nil,
-    :method => String.t,
-    :traits => map()
-  }
+          :csrf_token => String.t() | nil,
+          :method => String.t(),
+          :traits => map()
+        }
 end
 
 defimpl Poison.Decoder, for: Ory.Model.UpdateSettingsFlowWithProfileMethod do
@@ -25,4 +25,3 @@ defimpl Poison.Decoder, for: Ory.Model.UpdateSettingsFlowWithProfileMethod do
     value
   end
 end
-

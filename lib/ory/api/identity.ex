@@ -24,7 +24,10 @@ defmodule Ory.Api.Identity do
   - `{:ok, Ory.Model.BatchPatchIdentitiesResponse.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec batch_patch_identities(Tesla.Env.client, keyword()) :: {:ok, Ory.Model.ErrorGeneric.t} | {:ok, Ory.Model.BatchPatchIdentitiesResponse.t} | {:error, Tesla.Env.t}
+  @spec batch_patch_identities(Tesla.Env.client(), keyword()) ::
+          {:ok, Ory.Model.ErrorGeneric.t()}
+          | {:ok, Ory.Model.BatchPatchIdentitiesResponse.t()}
+          | {:error, Tesla.Env.t()}
   def batch_patch_identities(connection, opts \\ []) do
     optional_params = %{
       :body => :body
@@ -63,7 +66,10 @@ defmodule Ory.Api.Identity do
   - `{:ok, Ory.Model.Identity.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec create_identity(Tesla.Env.client, keyword()) :: {:ok, Ory.Model.ErrorGeneric.t} | {:ok, Ory.Model.Identity.t} | {:error, Tesla.Env.t}
+  @spec create_identity(Tesla.Env.client(), keyword()) ::
+          {:ok, Ory.Model.ErrorGeneric.t()}
+          | {:ok, Ory.Model.Identity.t()}
+          | {:error, Tesla.Env.t()}
   def create_identity(connection, opts \\ []) do
     optional_params = %{
       :body => :body
@@ -102,7 +108,10 @@ defmodule Ory.Api.Identity do
   - `{:ok, Ory.Model.RecoveryCodeForIdentity.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec create_recovery_code_for_identity(Tesla.Env.client, keyword()) :: {:ok, Ory.Model.ErrorGeneric.t} | {:ok, Ory.Model.RecoveryCodeForIdentity.t} | {:error, Tesla.Env.t}
+  @spec create_recovery_code_for_identity(Tesla.Env.client(), keyword()) ::
+          {:ok, Ory.Model.ErrorGeneric.t()}
+          | {:ok, Ory.Model.RecoveryCodeForIdentity.t()}
+          | {:error, Tesla.Env.t()}
   def create_recovery_code_for_identity(connection, opts \\ []) do
     optional_params = %{
       :body => :body
@@ -141,7 +150,10 @@ defmodule Ory.Api.Identity do
   - `{:ok, Ory.Model.RecoveryLinkForIdentity.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec create_recovery_link_for_identity(Tesla.Env.client, keyword()) :: {:ok, Ory.Model.ErrorGeneric.t} | {:ok, Ory.Model.RecoveryLinkForIdentity.t} | {:error, Tesla.Env.t}
+  @spec create_recovery_link_for_identity(Tesla.Env.client(), keyword()) ::
+          {:ok, Ory.Model.ErrorGeneric.t()}
+          | {:ok, Ory.Model.RecoveryLinkForIdentity.t()}
+          | {:error, Tesla.Env.t()}
   def create_recovery_link_for_identity(connection, opts \\ []) do
     optional_params = %{
       :body => :body
@@ -180,7 +192,8 @@ defmodule Ory.Api.Identity do
   - `{:ok, nil}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec delete_identity(Tesla.Env.client, String.t, keyword()) :: {:ok, nil} | {:ok, Ory.Model.ErrorGeneric.t} | {:error, Tesla.Env.t}
+  @spec delete_identity(Tesla.Env.client(), String.t(), keyword()) ::
+          {:ok, nil} | {:ok, Ory.Model.ErrorGeneric.t()} | {:error, Tesla.Env.t()}
   def delete_identity(connection, id, _opts \\ []) do
     request =
       %{}
@@ -213,7 +226,8 @@ defmodule Ory.Api.Identity do
   - `{:ok, nil}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec delete_identity_credentials(Tesla.Env.client, String.t, String.t, keyword()) :: {:ok, nil} | {:ok, Ory.Model.ErrorGeneric.t} | {:error, Tesla.Env.t}
+  @spec delete_identity_credentials(Tesla.Env.client(), String.t(), String.t(), keyword()) ::
+          {:ok, nil} | {:ok, Ory.Model.ErrorGeneric.t()} | {:error, Tesla.Env.t()}
   def delete_identity_credentials(connection, id, type, _opts \\ []) do
     request =
       %{}
@@ -245,7 +259,8 @@ defmodule Ory.Api.Identity do
   - `{:ok, nil}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec delete_identity_sessions(Tesla.Env.client, String.t, keyword()) :: {:ok, nil} | {:ok, Ory.Model.ErrorGeneric.t} | {:error, Tesla.Env.t}
+  @spec delete_identity_sessions(Tesla.Env.client(), String.t(), keyword()) ::
+          {:ok, nil} | {:ok, Ory.Model.ErrorGeneric.t()} | {:error, Tesla.Env.t()}
   def delete_identity_sessions(connection, id, _opts \\ []) do
     request =
       %{}
@@ -279,7 +294,8 @@ defmodule Ory.Api.Identity do
   - `{:ok, nil}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec disable_session(Tesla.Env.client, String.t, keyword()) :: {:ok, nil} | {:ok, Ory.Model.ErrorGeneric.t} | {:error, Tesla.Env.t}
+  @spec disable_session(Tesla.Env.client(), String.t(), keyword()) ::
+          {:ok, nil} | {:ok, Ory.Model.ErrorGeneric.t()} | {:error, Tesla.Env.t()}
   def disable_session(connection, id, _opts \\ []) do
     request =
       %{}
@@ -312,7 +328,10 @@ defmodule Ory.Api.Identity do
   - `{:ok, Ory.Model.Session.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec extend_session(Tesla.Env.client, String.t, keyword()) :: {:ok, Ory.Model.ErrorGeneric.t} | {:ok, Ory.Model.Session.t} | {:error, Tesla.Env.t}
+  @spec extend_session(Tesla.Env.client(), String.t(), keyword()) ::
+          {:ok, Ory.Model.ErrorGeneric.t()}
+          | {:ok, Ory.Model.Session.t()}
+          | {:error, Tesla.Env.t()}
   def extend_session(connection, id, _opts \\ []) do
     request =
       %{}
@@ -347,7 +366,10 @@ defmodule Ory.Api.Identity do
   - `{:ok, Ory.Model.Identity.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec get_identity(Tesla.Env.client, String.t, keyword()) :: {:ok, Ory.Model.ErrorGeneric.t} | {:ok, Ory.Model.Identity.t} | {:error, Tesla.Env.t}
+  @spec get_identity(Tesla.Env.client(), String.t(), keyword()) ::
+          {:ok, Ory.Model.ErrorGeneric.t()}
+          | {:ok, Ory.Model.Identity.t()}
+          | {:error, Tesla.Env.t()}
   def get_identity(connection, id, opts \\ []) do
     optional_params = %{
       :include_credential => :query
@@ -384,7 +406,8 @@ defmodule Ory.Api.Identity do
   - `{:ok, map()}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec get_identity_schema(Tesla.Env.client, String.t, keyword()) :: {:ok, Ory.Model.ErrorGeneric.t} | {:ok, Map.t} | {:error, Tesla.Env.t}
+  @spec get_identity_schema(Tesla.Env.client(), String.t(), keyword()) ::
+          {:ok, Ory.Model.ErrorGeneric.t()} | {:ok, Map.t()} | {:error, Tesla.Env.t()}
   def get_identity_schema(connection, id, _opts \\ []) do
     request =
       %{}
@@ -417,7 +440,10 @@ defmodule Ory.Api.Identity do
   - `{:ok, Ory.Model.Session.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec get_session(Tesla.Env.client, String.t, keyword()) :: {:ok, Ory.Model.ErrorGeneric.t} | {:ok, Ory.Model.Session.t} | {:error, Tesla.Env.t}
+  @spec get_session(Tesla.Env.client(), String.t(), keyword()) ::
+          {:ok, Ory.Model.ErrorGeneric.t()}
+          | {:ok, Ory.Model.Session.t()}
+          | {:error, Tesla.Env.t()}
   def get_session(connection, id, opts \\ []) do
     optional_params = %{
       :expand => :query
@@ -456,7 +482,10 @@ defmodule Ory.Api.Identity do
   - `{:ok, [%Identity{}, ...]}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec list_identities(Tesla.Env.client, keyword()) :: {:ok, Ory.Model.ErrorGeneric.t} | {:ok, list(Ory.Model.Identity.t)} | {:error, Tesla.Env.t}
+  @spec list_identities(Tesla.Env.client(), keyword()) ::
+          {:ok, Ory.Model.ErrorGeneric.t()}
+          | {:ok, list(Ory.Model.Identity.t())}
+          | {:error, Tesla.Env.t()}
   def list_identities(connection, opts \\ []) do
     optional_params = %{
       :per_page => :query,
@@ -495,7 +524,10 @@ defmodule Ory.Api.Identity do
   - `{:ok, [%IdentitySchemaContainer{}, ...]}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec list_identity_schemas(Tesla.Env.client, keyword()) :: {:ok, Ory.Model.ErrorGeneric.t} | {:ok, list(Ory.Model.IdentitySchemaContainer.t)} | {:error, Tesla.Env.t}
+  @spec list_identity_schemas(Tesla.Env.client(), keyword()) ::
+          {:ok, Ory.Model.ErrorGeneric.t()}
+          | {:ok, list(Ory.Model.IdentitySchemaContainer.t())}
+          | {:error, Tesla.Env.t()}
   def list_identity_schemas(connection, opts \\ []) do
     optional_params = %{
       :per_page => :query,
@@ -535,7 +567,10 @@ defmodule Ory.Api.Identity do
   - `{:ok, [%Session{}, ...]}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec list_identity_sessions(Tesla.Env.client, String.t, keyword()) :: {:ok, list(Ory.Model.Session.t)} | {:ok, Ory.Model.ErrorGeneric.t} | {:error, Tesla.Env.t}
+  @spec list_identity_sessions(Tesla.Env.client(), String.t(), keyword()) ::
+          {:ok, list(Ory.Model.Session.t())}
+          | {:ok, Ory.Model.ErrorGeneric.t()}
+          | {:error, Tesla.Env.t()}
   def list_identity_sessions(connection, id, opts \\ []) do
     optional_params = %{
       :per_page => :query,
@@ -578,7 +613,10 @@ defmodule Ory.Api.Identity do
   - `{:ok, [%Session{}, ...]}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec list_sessions(Tesla.Env.client, keyword()) :: {:ok, list(Ory.Model.Session.t)} | {:ok, Ory.Model.ErrorGeneric.t} | {:error, Tesla.Env.t}
+  @spec list_sessions(Tesla.Env.client(), keyword()) ::
+          {:ok, list(Ory.Model.Session.t())}
+          | {:ok, Ory.Model.ErrorGeneric.t()}
+          | {:error, Tesla.Env.t()}
   def list_sessions(connection, opts \\ []) do
     optional_params = %{
       :page_size => :query,
@@ -619,7 +657,10 @@ defmodule Ory.Api.Identity do
   - `{:ok, Ory.Model.Identity.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec patch_identity(Tesla.Env.client, String.t, keyword()) :: {:ok, Ory.Model.ErrorGeneric.t} | {:ok, Ory.Model.Identity.t} | {:error, Tesla.Env.t}
+  @spec patch_identity(Tesla.Env.client(), String.t(), keyword()) ::
+          {:ok, Ory.Model.ErrorGeneric.t()}
+          | {:ok, Ory.Model.Identity.t()}
+          | {:error, Tesla.Env.t()}
   def patch_identity(connection, id, opts \\ []) do
     optional_params = %{
       :body => :body
@@ -660,7 +701,10 @@ defmodule Ory.Api.Identity do
   - `{:ok, Ory.Model.Identity.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec update_identity(Tesla.Env.client, String.t, keyword()) :: {:ok, Ory.Model.ErrorGeneric.t} | {:ok, Ory.Model.Identity.t} | {:error, Tesla.Env.t}
+  @spec update_identity(Tesla.Env.client(), String.t(), keyword()) ::
+          {:ok, Ory.Model.ErrorGeneric.t()}
+          | {:ok, Ory.Model.Identity.t()}
+          | {:error, Tesla.Env.t()}
   def update_identity(connection, id, opts \\ []) do
     optional_params = %{
       :body => :body

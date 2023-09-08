@@ -13,9 +13,9 @@ defmodule Ory.Model.LogoutFlow do
   ]
 
   @type t :: %__MODULE__{
-    :logout_token => String.t,
-    :logout_url => String.t
-  }
+          :logout_token => String.t(),
+          :logout_url => String.t()
+        }
 end
 
 defimpl Poison.Decoder, for: Ory.Model.LogoutFlow do
@@ -23,4 +23,3 @@ defimpl Poison.Decoder, for: Ory.Model.LogoutFlow do
     value
   end
 end
-

@@ -15,18 +15,18 @@ defmodule Ory.Model.SelfServiceFlowExpiredError do
   ]
 
   @type t :: %__MODULE__{
-    :error => Ory.Model.GenericError.t | nil,
-    :expired_at => DateTime.t | nil,
-    :since => integer() | nil,
-    :use_flow_id => String.t | nil
-  }
+          :error => Ory.Model.GenericError.t() | nil,
+          :expired_at => DateTime.t() | nil,
+          :since => integer() | nil,
+          :use_flow_id => String.t() | nil
+        }
 end
 
 defimpl Poison.Decoder, for: Ory.Model.SelfServiceFlowExpiredError do
   import Ory.Deserializer
+
   def decode(value, options) do
     value
     |> deserialize(:error, :struct, Ory.Model.GenericError, options)
   end
 end
-

@@ -3,7 +3,7 @@
 
 defmodule Ory.Model.IdentityWithCredentialsOidcConfig do
   @moduledoc """
-  
+
   """
 
   @derive [Poison.Encoder]
@@ -13,17 +13,22 @@ defmodule Ory.Model.IdentityWithCredentialsOidcConfig do
   ]
 
   @type t :: %__MODULE__{
-    :config => Ory.Model.IdentityWithCredentialsPasswordConfig.t | nil,
-    :providers => [Ory.Model.IdentityWithCredentialsOidcConfigProvider.t] | nil
-  }
+          :config => Ory.Model.IdentityWithCredentialsPasswordConfig.t() | nil,
+          :providers => [Ory.Model.IdentityWithCredentialsOidcConfigProvider.t()] | nil
+        }
 end
 
 defimpl Poison.Decoder, for: Ory.Model.IdentityWithCredentialsOidcConfig do
   import Ory.Deserializer
+
   def decode(value, options) do
     value
     |> deserialize(:config, :struct, Ory.Model.IdentityWithCredentialsPasswordConfig, options)
-    |> deserialize(:providers, :list, Ory.Model.IdentityWithCredentialsOidcConfigProvider, options)
+    |> deserialize(
+      :providers,
+      :list,
+      Ory.Model.IdentityWithCredentialsOidcConfigProvider,
+      options
+    )
   end
 end
-

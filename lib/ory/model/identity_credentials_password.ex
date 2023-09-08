@@ -3,7 +3,7 @@
 
 defmodule Ory.Model.IdentityCredentialsPassword do
   @moduledoc """
-  
+
   """
 
   @derive [Poison.Encoder]
@@ -12,8 +12,8 @@ defmodule Ory.Model.IdentityCredentialsPassword do
   ]
 
   @type t :: %__MODULE__{
-    :hashed_password => String.t | nil
-  }
+          :hashed_password => String.t() | nil
+        }
 end
 
 defimpl Poison.Decoder, for: Ory.Model.IdentityCredentialsPassword do
@@ -21,4 +21,3 @@ defimpl Poison.Decoder, for: Ory.Model.IdentityCredentialsPassword do
     value
   end
 end
-

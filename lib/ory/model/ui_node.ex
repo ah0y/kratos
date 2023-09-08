@@ -16,16 +16,17 @@ defmodule Ory.Model.UiNode do
   ]
 
   @type t :: %__MODULE__{
-    :attributes => Ory.Model.UiNodeAttributes.t,
-    :group => String.t,
-    :messages => [Ory.Model.UiText.t],
-    :meta => Ory.Model.UiNodeMeta.t,
-    :type => String.t
-  }
+          :attributes => Ory.Model.UiNodeAttributes.t(),
+          :group => String.t(),
+          :messages => [Ory.Model.UiText.t()],
+          :meta => Ory.Model.UiNodeMeta.t(),
+          :type => String.t()
+        }
 end
 
 defimpl Poison.Decoder, for: Ory.Model.UiNode do
   import Ory.Deserializer
+
   def decode(value, options) do
     value
     |> deserialize(:attributes, :struct, Ory.Model.UiNodeAttributes, options)
@@ -33,4 +34,3 @@ defimpl Poison.Decoder, for: Ory.Model.UiNode do
     |> deserialize(:meta, :struct, Ory.Model.UiNodeMeta, options)
   end
 end
-
